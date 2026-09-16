@@ -1,0 +1,39 @@
+{
+    "paper_id": "P001",
+    "title": "Example Study of Alzheimer's Disease",
+    "entities": [
+        {
+            "text": "APOE",
+            "type": "GENE"
+        },
+        {
+            "text": "Alzheimer's disease",
+            "type": "DISEASE"
+        },
+        {
+            "text": "Amyloid beta",
+            "type": "PROTEIN"
+        },
+        {
+            "text": "Neuroinflammation",
+            "type": "PROCESS"
+        }
+    ],
+    "relations": [
+        {
+            "source": "GENE:apoe",
+            "relation": "ASSOCIATED_WITH",
+            "target": "DISEASE:alzheimer's disease"
+        },
+        {
+            "source": "PROTEIN:amyloid beta",
+            "relation": "ASSOCIATED_WITH",
+            "target": "DISEASE:alzheimer's disease"
+        },
+        {
+            "source": "DISEASE:alzheimer's disease",
+            "relation": "ASSOCIATED_WITH",
+            "target": "PROCESS:neuroinflammation"
+        }
+    ]
+}
