@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>HypothesisAI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background: #f5f6f8;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        pre {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>HypothesisAI</h1>
+
+    <div class="subtitle">
+        AI-powered scientific discovery assistant
+    </div>
+
+
+    <div class="card">
+
+        <h2>Knowledge Graph</h2>
+
+        <button onclick="loadGraph()">
+            Load Graph Data
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Search Entity</h2>
+
+        <input id="entityInput" placeholder="Example: APOE">
+
+        <button onclick="searchEntity()">
+            Search
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Potential Missing Connections</h2>
+
+        <button onclick="loadMissingLinks()">
+            Detect Connections
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Results</h2>
+
+        <pre id="output">
+Results will appear here...
+        </pre>
+
+    </div>
+
+
+    <script>
+
+        const API = "http://127.0.0.1:8000";
+
+
+        async function loadGraph() {
+
+            try {
+
+                const response =
+                    await fetch(`${API}/graph`);
+
+                const data =
+                    await response.json();
+
+                document.getElementById(
+                    "output"
+                ).textContent =
+                    JSON.stringify(
+                        data,
+                        null,
+                        2
+                    );
+
+            }
+
+            catch (error) {
+
+                showError(error);
+
+            }
+
+        }
+
+
+        async function searchEntity() {
+
+            const name =
+                document.getElementById(
+                    "entityInput"
+                ).value;
+
+            if (!name) {
+
+                alert(
+                    "Please enter an entity name."
+                );
+
+                return;
+
+            }
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API}/entity/`
+                        + encodeURIComponent(name)
+                    );
+
+                const data =
+                    await response.json();
+
+                document.getElementById(
+                    "output"
+                ).textContent =
+                    JSON.stringify(
+                        data,
+                        null,
+                        2
+                    );
+
+            }
+
+            catch (error) {
+
+                showError(error);
+
+            }
+
+        }
+
+
+        async function loadMissingLinks() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API}/missing-links`
+                    );
+
+                const data =
+                    await response.json();
+
+                document.getElementById(
+                    "output"
+                ).textContent =
+                    JSON.stringify(
+                        data,
+                        null,
+                        2
+                    );
+
+            }
+
+            catch (error) {
+
+                showError(error);
+
+            }
+
+        }
+
+
+        function showError(error) {
+
+            document.getElementById(
+                "output"
+            ).textContent =
+                "Error: " + error;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

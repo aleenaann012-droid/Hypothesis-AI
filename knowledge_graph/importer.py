@@ -1,168 +1,176 @@
-import json
 from pathlib import Path
+
+from nlp.pdf_extractor import extract_text_from_pdf
+from nlp.entity_extractor import extract_entities
+from nlp.relation_extractor import extract_relations
 
 from knowledge_graph.graph_builder import GraphBuilder
 
 
-def create_entity_id(name, entity_type):
+def create_entity_id(name):
+    """
+    Create a unique Neo4j ID for an extracted entity.
+    """
+    return f"ENTITY:{name.lower().strip()}"
 
-    return (
-        f"{entity_type.upper().strip()}:"
-        f"{name.lower().strip()}"
-    )
 
-
-def import_paper(builder, paper):
-
-    paper_id = paper["paper_id"]
-
-    title = paper.get(
-        "title",
-        "Unknown Title"
-    )
+def import_research_paper(builder, pdf_path, paper_id):
+    """
+    Run the NLP pipeline on a PDF and import
+    the extracted entities and relationships into Neo4j.
+    """
 
     print()
-    print(
-        f"Importing paper: {paper_id}"
-    )
+    print("========================================")
+    print("IMPORTING RESEARCH PAPER")
+    print("========================================")
 
-    # -----------------------------------------
-    # CREATE PAPER
-    # -----------------------------------------
+    print("PDF:", pdf_path)
+    print("Paper ID:", paper_id)
+
+    # -------------------------------------------------
+    # STEP 1: Extract PDF text
+    # -------------------------------------------------
+
+    print()
+    print("Step 1: Extracting PDF text...")
+
+    text = extract_text_from_pdf(pdf_path)
+
+    print("Text extracted successfully!")
+    print("Characters:", len(text))
+
+    # -------------------------------------------------
+    # STEP 2: Extract entities
+    # -------------------------------------------------
+
+    print()
+    print("Step 2: Extracting entities...")
+
+    entities = extract_entities(text)
+
+    print("Entities extracted:", len(entities))
+
+    # -------------------------------------------------
+    # STEP 3: Extract relations
+    # -------------------------------------------------
+
+    print()
+    print("Step 3: Extracting relations...")
+
+    relations = extract_relations(text)
+
+    print("Relations extracted:", len(relations))
+
+    # -------------------------------------------------
+    # STEP 4: Create Paper node
+    # -------------------------------------------------
+
+    title = Path(pdf_path).stem
 
     builder.create_paper(
-        paper_id,
-        title
+        paper_id=paper_id,
+        title=title
     )
 
-    # -----------------------------------------
-    # CREATE ENTITIES
-    # -----------------------------------------
+    # -------------------------------------------------
+    # STEP 5: Create Entity nodes
+    # -------------------------------------------------
 
     entity_lookup = {}
 
-    for entity in paper.get(
-        "entities",
-        []
-    ):
+    imported_entities = 0
 
-        name = entity.get(
-            "text",
-            ""
-        ).strip()
+    for entity in entities:
 
-        entity_type = entity.get(
-            "type",
-            "ENTITY"
-        ).strip()
+        name = entity.get("text", "").strip()
 
         if not name:
             continue
 
-        entity_id = create_entity_id(
-            name,
-            entity_type
-        )
+        entity_id = create_entity_id(name)
 
-        entity_lookup[
-            name.lower()
-        ] = entity_id
+        # Store the entity ID using lowercase text
+        entity_lookup[name.lower()] = entity_id
 
         builder.create_entity(
-            entity_id,
-            name,
-            entity_type,
-            paper_id
+            entity_id=entity_id,
+            name=name,
+            entity_type="ENTITY",
+            paper_id=paper_id
         )
 
-    # -----------------------------------------
-    # CREATE RELATIONSHIPS
-    # -----------------------------------------
+        imported_entities += 1
 
-    for relation in paper.get(
-        "relations",
-        []
-    ):
+    # -------------------------------------------------
+    # STEP 6: Create relationships
+    # -------------------------------------------------
 
-        source = relation.get(
-            "source",
-            ""
-        ).strip()
+    imported_relations = 0
+    skipped_relations = 0
 
-        target = relation.get(
-            "target",
-            ""
-        ).strip()
+    for relation in relations:
 
-        relation_type = relation.get(
-            "relation",
-            "RELATED_TO"
-        ).strip()
+        subject = relation.get("subject", "").strip()
+        relation_type = relation.get("relation", "RELATED_TO").strip()
+        object_name = relation.get("object", "").strip()
 
-        if not source or not target:
+        if not subject or not object_name:
             continue
 
-        # Use entity ID if provided
-        if source in entity_lookup.values():
+        source_id = entity_lookup.get(subject.lower())
+        target_id = entity_lookup.get(object_name.lower())
 
-            source_id = source
-
-        else:
-
-            source_id = entity_lookup.get(
-                source.lower()
-            )
-
-        if target in entity_lookup.values():
-
-            target_id = target
-
-        else:
-
-            target_id = entity_lookup.get(
-                target.lower()
-            )
-
+        # Only create relation if both entities
+        # were found by the entity extractor.
         if not source_id or not target_id:
 
+            skipped_relations += 1
+
             print(
-                "Warning: entity not found:",
-                source,
+                "Skipping relation because entity was not found:",
+                subject,
                 "->",
-                target
+                object_name
             )
 
             continue
 
         builder.create_relationship(
-            source_id,
-            target_id,
-            relation_type
+            source_id=source_id,
+            target_id=target_id,
+            relationship=relation_type
         )
 
-    print(
-        f"Finished importing {paper_id}"
-    )
+        imported_relations += 1
+
+    # -------------------------------------------------
+    # SUMMARY
+    # -------------------------------------------------
+
+    print()
+    print("========================================")
+    print("IMPORT SUMMARY")
+    print("========================================")
+
+    print("Entities extracted:", len(entities))
+    print("Entities imported:", imported_entities)
+
+    print("Relations extracted:", len(relations))
+    print("Relations imported:", imported_relations)
+    print("Relations skipped:", skipped_relations)
+
+    print()
+    print("Neo4j import completed successfully!")
 
 
-def import_directory():
+def main():
 
-    directory = Path(
-        "data/processed"
-    )
+    # Research paper
+    pdf_path = "test_researchpaper.pdf"
 
-    files = list(
-        directory.glob("*.json")
-    )
-
-    if not files:
-
-        print(
-            "No JSON files found in "
-            "data/processed/"
-        )
-
-        return
+    # ID used for the Paper node in Neo4j
+    paper_id = "P001"
 
     builder = GraphBuilder()
 
@@ -170,38 +178,11 @@ def import_directory():
 
         builder.create_constraints()
 
-        print(
-            f"Found {len(files)} JSON files."
+        import_research_paper(
+            builder,
+            pdf_path,
+            paper_id
         )
-
-        for file in files:
-
-            try:
-
-                with open(
-                    file,
-                    "r",
-                    encoding="utf-8"
-                ) as f:
-
-                    paper = json.load(f)
-
-                import_paper(
-                    builder,
-                    paper
-                )
-
-            except Exception as error:
-
-                print(
-                    f"Error importing {file.name}:",
-                    error
-                )
-
-        print()
-        print("================================")
-        print("IMPORT COMPLETED")
-        print("================================")
 
     finally:
 
@@ -209,5 +190,4 @@ def import_directory():
 
 
 if __name__ == "__main__":
-
-    import_directory()
+    main()
