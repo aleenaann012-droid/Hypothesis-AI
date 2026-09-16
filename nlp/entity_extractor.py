@@ -41,3 +41,12 @@ if __name__ == "__main__":
         print(entity["text"], "->", entity["label"])
 
     print("\nTotal entities:", len(entities))
+
+
+import json
+
+# Save extracted entities to JSON
+with open("nlp/entity.json", "w", encoding="utf-8") as f:
+    json.dump(entities, f, indent=4, ensure_ascii=False)
+
+print("\nEntities saved to nlp/entity.json")

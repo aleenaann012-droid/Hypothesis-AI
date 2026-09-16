@@ -1,0 +1,7682 @@
+[
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Comprehensive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Review",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagnosis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Anirudh Prabhu \n \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gifted Gabber",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progressive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurodegenerative disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "loss of",
+        "label": "ENTITY"
+    },
+    {
+        "text": "motor",
+        "label": "ENTITY"
+    },
+    {
+        "text": "think",
+        "label": "ENTITY"
+    },
+    {
+        "text": "to-day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "life",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "investigated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scientists",
+        "label": "ENTITY"
+    },
+    {
+        "text": "researchers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic contributions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "buildup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "β -amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "limits communication",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nerve cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "buildup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurofibrillary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuroimaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "niques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptomatic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Introduction",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Imagine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "trash",
+        "label": "ENTITY"
+    },
+    {
+        "text": "someone",
+        "label": "ENTITY"
+    },
+    {
+        "text": "article",
+        "label": "ENTITY"
+    },
+    {
+        "text": "day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "job",
+        "label": "ENTITY"
+    },
+    {
+        "text": "boss’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "read",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stage symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alz-\nheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurodegenerative disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "time",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "condition \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progressive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "loss",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "thinking",
+        "label": "ENTITY"
+    },
+    {
+        "text": "changes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "personality",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "findings",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein buildup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "question",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Beta Amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau \nproteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chemical",
+        "label": "ENTITY"
+    },
+    {
+        "text": "makeup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "long",
+        "label": "ENTITY"
+    },
+    {
+        "text": "shape",
+        "label": "ENTITY"
+    },
+    {
+        "text": "attracted",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tangle",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide fragment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "error",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic code",
+        "label": "ENTITY"
+    },
+    {
+        "text": "code",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide",
+        "label": "ENTITY"
+    },
+    {
+        "text": "version",
+        "label": "ENTITY"
+    },
+    {
+        "text": "error",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzymes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ fragment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "clump",
+        "label": "ENTITY"
+    },
+    {
+        "text": "extracellular space",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "limit communication",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Galantamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "attack",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ vaccine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "attempts \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "target",
+        "label": "ENTITY"
+    },
+    {
+        "text": "remove",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "target",
+        "label": "ENTITY"
+    },
+    {
+        "text": "clumps",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "approval \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accelerated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "approval",
+        "label": "ENTITY"
+    },
+    {
+        "text": "FDA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "medical use",
+        "label": "ENTITY"
+    },
+    {
+        "text": "United States",
+        "label": "ENTITY"
+    },
+    {
+        "text": "audiovisual",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimulation methods",
+        "label": "ENTITY"
+    },
+    {
+        "text": "induce",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma waves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Evidence",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "vasive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein buildup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain matter",
+        "label": "ENTITY"
+    },
+    {
+        "text": "decay",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Millions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "people",
+        "label": "ENTITY"
+    },
+    {
+        "text": "live",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dementias",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n1\n\nAlzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progressive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diseases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "worse",
+        "label": "ENTITY"
+    },
+    {
+        "text": "worsened",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "future",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "minor",
+        "label": "ENTITY"
+    },
+    {
+        "text": "veniences",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progress",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "health conditions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "category",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "split",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "preclinical phase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "clinical signs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "impairment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "daily activities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "years",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progresses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "transitions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mild Cognitive Impairment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "MCI",
+        "label": "ENTITY"
+    },
+    {
+        "text": "MCI",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pre-\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gets",
+        "label": "ENTITY"
+    },
+    {
+        "text": "noticeable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient enters",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mild",
+        "label": "ENTITY"
+    },
+    {
+        "text": "moderate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "severe",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mild stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "loss of",
+        "label": "ENTITY"
+    },
+    {
+        "text": "concentration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "changes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mood",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disorientation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "depression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathological",
+        "label": "ENTITY"
+    },
+    {
+        "text": "effects",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Moderate stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "spread",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cerebral cortex",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increased",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory loss",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "family",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lose control",
+        "label": "ENTITY"
+    },
+    {
+        "text": "impulses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reading",
+        "label": "ENTITY"
+    },
+    {
+        "text": "writing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "speaking",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Severe stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accumulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurofibrillary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "impair",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "recognize",
+        "label": "ENTITY"
+    },
+    {
+        "text": "family members",
+        "label": "ENTITY"
+    },
+    {
+        "text": "eating",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bathroom",
+        "label": "ENTITY"
+    },
+    {
+        "text": "death",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "homeostasis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "MCI",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mild \nCognitive Impairment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "interact",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "functions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "organs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "complex",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "billion nerve cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "com-\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "municate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "parts",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "walk",
+        "label": "ENTITY"
+    },
+    {
+        "text": "talk",
+        "label": "ENTITY"
+    },
+    {
+        "text": "eat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Let",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuron",
+        "label": "ENTITY"
+    },
+    {
+        "text": "functions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "motor neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "afferent",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sensory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "interneurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "send",
+        "label": "ENTITY"
+    },
+    {
+        "text": "signals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "parts",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "running",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nucleus",
+        "label": "ENTITY"
+    },
+    {
+        "text": "surrounded",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n2\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "long arm",
+        "label": "ENTITY"
+    },
+    {
+        "text": "transmits",
+        "label": "ENTITY"
+    },
+    {
+        "text": "signals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "myelin sheath",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Schwann cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "signal",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axon terminals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuron",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gap",
+        "label": "ENTITY"
+    },
+    {
+        "text": "communicate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "electricity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chemicals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitters",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitter",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dopamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bind",
+        "label": "ENTITY"
+    },
+    {
+        "text": "receptors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "receptors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "inside",
+        "label": "ENTITY"
+    },
+    {
+        "text": "outside",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuron",
+        "label": "ENTITY"
+    },
+    {
+        "text": "electrical signal",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sent \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rminals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitters",
+        "label": "ENTITY"
+    },
+    {
+        "text": "synapse",
+        "label": "ENTITY"
+    },
+    {
+        "text": "receptors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "anatomy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "generic neuron",
+        "label": "ENTITY"
+    },
+    {
+        "text": "BioRender.com",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neurofibrillary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuronal communication",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reasons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cause",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cytoskeleton",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cytoskeleton",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "category",
+        "label": "ENTITY"
+    },
+    {
+        "text": "organelles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuron",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "polymers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tubulin",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tube",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structures",
+        "label": "ENTITY"
+    },
+    {
+        "text": "shape",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "parts",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "unstable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubule-associated protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "suppressing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubule shortening",
+        "label": "ENTITY"
+    },
+    {
+        "text": "deformations",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stability",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "damaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cerebrospinal fluid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CSF",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurofibrillary tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "begin",
+        "label": "ENTITY"
+    },
+    {
+        "text": "detach",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "clumps",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n3\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "carry signals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dendrites",
+        "label": "ENTITY"
+    },
+    {
+        "text": "axons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reason tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chemical abnormality",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "associated with",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hyperphosphorylated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phosphate groups",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bonded",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phosphorylated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzyme group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "kinase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kinases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "catalyzing \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phosphate groups",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ATP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "molecules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "imbalance favors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bond with",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bond with",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chemical",
+        "label": "ENTITY"
+    },
+    {
+        "text": "imbalances",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rope-like” structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hyperphosphorylation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bind",
+        "label": "ENTITY"
+    },
+    {
+        "text": "complicated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "balls",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lint",
+        "label": "ENTITY"
+    },
+    {
+        "text": "average",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CSF",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Data",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Sunderland",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Digital illustration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accumulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "human",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neurofibrillary Tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Beta Amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "BioRender.com",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Volume",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n4",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "process",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phosphorylation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "kinases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microtubule structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregates",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NFTs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neurofibrillary Tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "BioRender.com",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid Plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid β",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "breakdown",
+        "label": "ENTITY"
+    },
+    {
+        "text": "parent protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid Precursor Protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "’s function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "speculate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neural growth \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "maturation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Coronel",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "processing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stand",
+        "label": "ENTITY"
+    },
+    {
+        "text": "basics",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Protein Synthesis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "anything",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "molecules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "food",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lipases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fats",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amylases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "starches",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sodium/potassium pumps",
+        "label": "ENTITY"
+    },
+    {
+        "text": "exchange",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "DNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "blueprint",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "DNA molecule carries",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic instructions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "DNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "read",
+        "label": "ENTITY"
+    },
+    {
+        "text": "RNA polymerase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "transcribed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "maturing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "travels \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nucleus",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cytoplasm",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "translated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ribosomes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "RNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nucleotides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "codons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "codon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "read",
+        "label": "ENTITY"
+    },
+    {
+        "text": "translated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide molecule",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ribosome",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ribosome",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA molecule",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "translated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA sequence",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chain \nforms bonds",
+        "label": "ENTITY"
+    },
+    {
+        "text": "molecules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "folding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "functional protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Volume",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n5",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "process",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein synthesis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "DNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Deoxyribonucleic Acid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "RNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Ribonucleic \nAcid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Messenger RNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tRNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Transfer RNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "BioRender.com",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid Plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cont",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "process",
+        "label": "ENTITY"
+    },
+    {
+        "text": "outcomes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "formation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "DNA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "transcribed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "matured",
+        "label": "ENTITY"
+    },
+    {
+        "text": "translated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chains",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gene",
+        "label": "ENTITY"
+    },
+    {
+        "text": "codes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chain regularly",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzymes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "α -secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzymes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sections",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleave",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "α -",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ-secretases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amino terminal fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTFs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleaved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "α-secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTF83",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sAPPα",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sAPPα",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sent \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTF83",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleaved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ-secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AICD50",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P3",
+        "label": "ENTITY"
+    },
+    {
+        "text": "case",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP gene",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mutated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "polypeptide chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "α -\nsecretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleave",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzyme",
+        "label": "ENTITY"
+    },
+    {
+        "text": "β-secretase \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "chain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTF99",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sAPPβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sAPPβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleaved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bond with death receptors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "synaptic \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "process",
+        "label": "ENTITY"
+    },
+    {
+        "text": "extra neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "syna",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "promote",
+        "label": "ENTITY"
+    },
+    {
+        "text": "efficiency",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sAPPα",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuronal survival",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enhances",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "strengthening",
+        "label": "ENTITY"
+    },
+    {
+        "text": "long -term potentiation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "LTP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "develops",
+        "label": "ENTITY"
+    },
+    {
+        "text": "connection",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "communication",
+        "label": "ENTITY"
+    },
+    {
+        "text": "easier",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTF99",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cleaved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ-secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AICD50",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "unusual",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "extracellular space",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "filling up",
+        "label": "ENTITY"
+    },
+    {
+        "text": "spaces",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disrupting",
+        "label": "ENTITY"
+    },
+    {
+        "text": "connections",
+        "label": "ENTITY"
+    },
+    {
+        "text": "findings",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gene mutations",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ generation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "clump",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stickier",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reason",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ronmental",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "measure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acidic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "level",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "anything",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "base",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Proteins \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "environment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "suits",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n6\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "isoelectric point",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proteins",
+        "label": "ENTITY"
+    },
+    {
+        "text": "environment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptide",
+        "label": "ENTITY"
+    },
+    {
+        "text": "case",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acidic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bind",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "studies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acidic –",
+        "label": "ENTITY"
+    },
+    {
+        "text": "low",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pH",
+        "label": "ENTITY"
+    },
+    {
+        "text": "environments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "promote",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregation \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Processing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "right",
+        "label": "ENTITY"
+    },
+    {
+        "text": "incorrect processing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloidogenic \npathway",
+        "label": "ENTITY"
+    },
+    {
+        "text": "left",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Beta Amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid Precursor Protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CTF",
+        "label": "ENTITY"
+    },
+    {
+        "text": "carboxyterminal fragments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "β-Secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "α-Secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "γ-secretase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ECS",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Extracellular Space",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PM",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Plasma Membrane",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CYT",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cytoplasm",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Bi-\noRender.com",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Prevention",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "discussing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "identified",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnosed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment options",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "overall",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Identification",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagnosis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient looks",
+        "label": "ENTITY"
+    },
+    {
+        "text": "someone",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuroimaging technologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "observe",
+        "label": "ENTITY"
+    },
+    {
+        "text": "human \nbrain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "method",
+        "label": "ENTITY"
+    },
+    {
+        "text": "else",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "single technique",
+        "label": "ENTITY"
+    },
+    {
+        "text": "methods",
+        "label": "ENTITY"
+    },
+    {
+        "text": "combination",
+        "label": "ENTITY"
+    },
+    {
+        "text": "information",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Volume",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n7\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Computed Tomography",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Computed Tomography scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "imaging technologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "medical field",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuroimaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "process",
+        "label": "ENTITY"
+    },
+    {
+        "text": "map",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT \nscans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "shape",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "abnormalities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "loop",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT machine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X-ray mechanism",
+        "label": "ENTITY"
+    },
+    {
+        "text": "inside",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rotates",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "beams \nof",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X-rays",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X-ray detectors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rotate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X-ray source",
+        "label": "ENTITY"
+    },
+    {
+        "text": "captured",
+        "label": "ENTITY"
+    },
+    {
+        "text": "computer \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "X-rays",
+        "label": "ENTITY"
+    },
+    {
+        "text": "slices",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "screen",
+        "label": "ENTITY"
+    },
+    {
+        "text": "flat images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body parts",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bones",
+        "label": "ENTITY"
+    },
+    {
+        "text": "muscles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "organs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "blood vessels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "fat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Digital representative illustration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "right",
+        "label": "ENTITY"
+    },
+    {
+        "text": "left",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "HC",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Healthy Control",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Positron Emission Tomography",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Positron Emission Tomography scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "imaging technique",
+        "label": "ENTITY"
+    },
+    {
+        "text": "detect",
+        "label": "ENTITY"
+    },
+    {
+        "text": "movement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substance",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substance’s usage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "occurrence",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "structure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tissues",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body/brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET \nscan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "activation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "regions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "two-dimensional images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET scans \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy controls",
+        "label": "ENTITY"
+    },
+    {
+        "text": "abnormalities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain activity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substance movement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient first",
+        "label": "ENTITY"
+    },
+    {
+        "text": "injected",
+        "label": "ENTITY"
+    },
+    {
+        "text": "radioactive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sugar",
+        "label": "ENTITY"
+    },
+    {
+        "text": "intravenously",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient’s body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mimics",
+        "label": "ENTITY"
+    },
+    {
+        "text": "movement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "molecules",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hour",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "laid down",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scanning machine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "machine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT machine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "circular tube \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "detects",
+        "label": "ENTITY"
+    },
+    {
+        "text": "radioactivity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "emitted",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "location",
+        "label": "ENTITY"
+    },
+    {
+        "text": "information",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "computer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "outputs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "flat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "image",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amount",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "color",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain activity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain activity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "quantity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substances",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "buildup",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substances",
+        "label": "ENTITY"
+    },
+    {
+        "text": "specific",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "e xample",
+        "label": "ENTITY"
+    },
+    {
+        "text": "2-deoxy-2-[18F]fluorodeoxyglucose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "[18F]FDG",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n8\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "radiopharmaceutical",
+        "label": "ENTITY"
+    },
+    {
+        "text": "eagerly",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "metabolized",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Unhealthy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dead cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "substance",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnosis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "[18F]FDG",
+        "label": "ENTITY"
+    },
+    {
+        "text": "detect",
+        "label": "ENTITY"
+    },
+    {
+        "text": "location",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "unhealthy cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accuracy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tracer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduces",
+        "label": "ENTITY"
+    },
+    {
+        "text": "older patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "age",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid-",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau-PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "biomarkers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetically",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tangles",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reasons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progress",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "specific",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accurate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid-PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "radiotracers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "target",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aggregates",
+        "label": "ENTITY"
+    },
+    {
+        "text": "record",
+        "label": "ENTITY"
+    },
+    {
+        "text": "movement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "location",
+        "label": "ENTITY"
+    },
+    {
+        "text": "plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tracers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Pittsburgh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Compound B",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bind",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Suppiah",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Digital representative illustration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "right",
+        "label": "ENTITY"
+    },
+    {
+        "text": "healthy control",
+        "label": "ENTITY"
+    },
+    {
+        "text": "left",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Low",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ concent",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cooler",
+        "label": "ENTITY"
+    },
+    {
+        "text": "colors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "blue",
+        "label": "ENTITY"
+    },
+    {
+        "text": "green",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "concentration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "warmer colors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "red",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "HC",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Healthy Control",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "complicated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "condition",
+        "label": "ENTITY"
+    },
+    {
+        "text": "meantime",
+        "label": "ENTITY"
+    },
+    {
+        "text": "FDA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "therapies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "early",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mild/moderate- stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Galantamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptomatic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive abilities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cholinergic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hypothesis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "says",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduction",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acetylcholine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitter \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain’s state",
+        "label": "ENTITY"
+    },
+    {
+        "text": "attention",
+        "label": "ENTITY"
+    },
+    {
+        "text": "arousal",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lacking",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzyme",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acetylcholinesterase \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChE",
+        "label": "ENTITY"
+    },
+    {
+        "text": "breaks down",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Galantamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChE \ninhibitors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChEIs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stop",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChE",
+        "label": "ENTITY"
+    },
+    {
+        "text": "breaking down ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n9",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "second-generation AChEI",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tablet",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChE",
+        "label": "ENTITY"
+    },
+    {
+        "text": "enzyme",
+        "label": "ENTITY"
+    },
+    {
+        "text": "inhibiting",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "concentration",
+        "label": "ENTITY"
+    },
+    {
+        "text": "synapses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "compensates",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lack",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitters",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Donepezil",
+        "label": "ENTITY"
+    },
+    {
+        "text": "induces",
+        "label": "ENTITY"
+    },
+    {
+        "text": "side effects",
+        "label": "ENTITY"
+    },
+    {
+        "text": "nervous systems",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Breijyeh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Galantamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Galantamine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "GAL",
+        "label": "ENTITY"
+    },
+    {
+        "text": "first -line",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mild/moderate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "GAL",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acetylcholinesterase inhibitors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binds",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChEs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stops",
+        "label": "ENTITY"
+    },
+    {
+        "text": "interacting",
+        "label": "ENTITY"
+    },
+    {
+        "text": "acetylcholine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AChEIs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "GAL",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurotransmitter agonist",
+        "label": "ENTITY"
+    },
+    {
+        "text": "bind",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh receptors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pretending",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh molecule itself",
+        "label": "ENTITY"
+    },
+    {
+        "text": "extra function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ACh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "needing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "GAL",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ingested",
+        "label": "ENTITY"
+    },
+    {
+        "text": "orally",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tablet",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "target",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive \nfunction",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "decline",
+        "label": "ENTITY"
+    },
+    {
+        "text": "FDA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "distribution",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reducing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive decline",
+        "label": "ENTITY"
+    },
+    {
+        "text": "re-\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "normal state altogether",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Graph",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Normal aging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive ability",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cognitive Ability",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "generation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "immunotherapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tested",
+        "label": "ENTITY"
+    },
+    {
+        "text": "effectiveness",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase III trials",
+        "label": "ENTITY"
+    },
+    {
+        "text": "meant",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "early stages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Hameed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "vaccine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase II study \n(Vandenberghe et al.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "doses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebos \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "vaccine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "serological response",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "functionality",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "improved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "response",
+        "label": "ENTITY"
+    },
+    {
+        "text": "course",
+        "label": "ENTITY"
+    },
+    {
+        "text": "weeks",
+        "label": "ENTITY"
+    },
+    {
+        "text": "group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "criteria",
+        "label": "ENTITY"
+    },
+    {
+        "text": "response",
+        "label": "ENTITY"
+    },
+    {
+        "text": "time period",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "response",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "intended",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "trial",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "adverse events",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AEs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AEs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid-related imaging abnormalities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ARIAs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "asymptomatic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "headache",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hypertension",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pyrexia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "percentage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dosage groups",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "responses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Data",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Vandenberghe \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "accelerated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "approval",
+        "label": "ENTITY"
+    },
+    {
+        "text": "FDA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "medical use",
+        "label": "ENTITY"
+    },
+    {
+        "text": "United States",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "monoclonal \nantibody",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CA D106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binds",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ peptides",
+        "label": "ENTITY"
+    },
+    {
+        "text": "excess",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient’s body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibody",
+        "label": "ENTITY"
+    },
+    {
+        "text": "administered",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "IV",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "triggers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "production",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body",
+        "label": "ENTITY"
+    },
+    {
+        "text": "year",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase III trial",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "months",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "age",
+        "label": "ENTITY"
+    },
+    {
+        "text": "years",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnosed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mild \ncognitive impairment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "assigned",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "experimental group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "administered",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug intravenously",
+        "label": "ENTITY"
+    },
+    {
+        "text": "kilogram",
+        "label": "ENTITY"
+    },
+    {
+        "text": "body fat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "weeks",
+        "label": "ENTITY"
+    },
+    {
+        "text": "months",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "analyzed",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scored",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Clinical Dementia Rating",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Volume",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n11\n\nSum",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Boxes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CDR -SB",
+        "label": "ENTITY"
+    },
+    {
+        "text": "score",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scores",
+        "label": "ENTITY"
+    },
+    {
+        "text": "impairment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CDR-SB score",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "groups",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "baseline",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drug",
+        "label": "ENTITY"
+    },
+    {
+        "text": "experiment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "grouped",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "evaluate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "change",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sub",
+        "label": "ENTITY"
+    },
+    {
+        "text": "group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "baseline",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "level",
+        "label": "ENTITY"
+    },
+    {
+        "text": "centiloids",
+        "label": "ENTITY"
+    },
+    {
+        "text": "standardized measurement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET imaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "success",
+        "label": "ENTITY"
+    },
+    {
+        "text": "months",
+        "label": "ENTITY"
+    },
+    {
+        "text": "centiloids",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "meant",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "experimental group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduced",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increased",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduced",
+        "label": "ENTITY"
+    },
+    {
+        "text": "markers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "early-stage",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "decline",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognition",
+        "label": "ENTITY"
+    },
+    {
+        "text": "placebo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "trials",
+        "label": "ENTITY"
+    },
+    {
+        "text": "occurred",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AEs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "infusion-related reactions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ARIA \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cerebral microhemorrhages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cerebral macrohemorrhages",
+        "label": "ENTITY"
+    },
+    {
+        "text": "superficial siderosis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "headaches",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pioneering approach",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain waves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma waves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brainwaves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "human",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "masses",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neurons",
+        "label": "ENTITY"
+    },
+    {
+        "text": "synchronized",
+        "label": "ENTITY"
+    },
+    {
+        "text": "resonate",
+        "label": "ENTITY"
+    },
+    {
+        "text": "frequencies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "proximately",
+        "label": "ENTITY"
+    },
+    {
+        "text": "studies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "rhythms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patterns",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma waves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma oscillations",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory functions",
+        "label": "ENTITY"
+    },
+    {
+        "text": "evidence",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduction",
+        "label": "ENTITY"
+    },
+    {
+        "text": "slow gamma activity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "impaired",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mice",
+        "label": "ENTITY"
+    },
+    {
+        "text": "modified",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma activity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "normal",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "induce",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimuli",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma frequencies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patient",
+        "label": "ENTITY"
+    },
+    {
+        "text": "gamma frequency",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tone",
+        "label": "ENTITY"
+    },
+    {
+        "text": "frequency",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Iaccarino",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mice",
+        "label": "ENTITY"
+    },
+    {
+        "text": "modified",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "humans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "invasive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "flicker",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "no light",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hour",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "decrease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "visual cortex",
+        "label": "ENTITY"
+    },
+    {
+        "text": "compared",
+        "label": "ENTITY"
+    },
+    {
+        "text": "dark",
+        "label": "ENTITY"
+    },
+    {
+        "text": "controls",
+        "label": "ENTITY"
+    },
+    {
+        "text": "procedures",
+        "label": "ENTITY"
+    },
+    {
+        "text": "models",
+        "label": "ENTITY"
+    },
+    {
+        "text": "engineered",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Martorell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "auditory stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tones",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hour",
+        "label": "ENTITY"
+    },
+    {
+        "text": "day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "days",
+        "label": "ENTITY"
+    },
+    {
+        "text": "authors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "primary auditory cortex",
+        "label": "ENTITY"
+    },
+    {
+        "text": "campus",
+        "label": "ENTITY"
+    },
+    {
+        "text": "memory",
+        "label": "ENTITY"
+    },
+    {
+        "text": "improvements",
+        "label": "ENTITY"
+    },
+    {
+        "text": "testing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "modified",
+        "label": "ENTITY"
+    },
+    {
+        "text": "mice",
+        "label": "ENTITY"
+    },
+    {
+        "text": "conclusive results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ness",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Suk",
+        "label": "ENTITY"
+    },
+    {
+        "text": "device",
+        "label": "ENTITY"
+    },
+    {
+        "text": "audio",
+        "label": "ENTITY"
+    },
+    {
+        "text": "visual",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimuli",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitively healthy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "epileptic patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "measuring",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive abilities",
+        "label": "ENTITY"
+    },
+    {
+        "text": "improvements",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease pathologies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "preliminary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "evidence",
+        "label": "ENTITY"
+    },
+    {
+        "text": "safety",
+        "label": "ENTITY"
+    },
+    {
+        "text": "feasibi lity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimulation therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "studies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "efficacy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "humans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hour",
+        "label": "ENTITY"
+    },
+    {
+        "text": "audiovisual",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stimulation \ndevice",
+        "label": "ENTITY"
+    },
+    {
+        "text": "months",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "weeks",
+        "label": "ENTITY"
+    },
+    {
+        "text": "studies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "reduction",
+        "label": "ENTITY"
+    },
+    {
+        "text": "functional",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "study",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "hippocampal atrophy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "ventricular expansion",
+        "label": "ENTITY"
+    },
+    {
+        "text": "control group",
+        "label": "ENTITY"
+    },
+    {
+        "text": "results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "delay",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease progression",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n12\n\nConclusion",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diseases",
+        "label": "ENTITY"
+    },
+    {
+        "text": "humans",
+        "label": "ENTITY"
+    },
+    {
+        "text": "learned",
+        "label": "ENTITY"
+    },
+    {
+        "text": "brain",
+        "label": "ENTITY"
+    },
+    {
+        "text": "complex",
+        "label": "ENTITY"
+    },
+    {
+        "text": "organ",
+        "label": "ENTITY"
+    },
+    {
+        "text": "researchers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "day",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "confusing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "progress",
+        "label": "ENTITY"
+    },
+    {
+        "text": "’ve",
+        "label": "ENTITY"
+    },
+    {
+        "text": "lot",
+        "label": "ENTITY"
+    },
+    {
+        "text": "genetic causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "signs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "symptoms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "continuing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "research",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "slow",
+        "label": "ENTITY"
+    },
+    {
+        "text": "future",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cure",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease altogether",
+        "label": "ENTITY"
+    },
+    {
+        "text": "natural",
+        "label": "ENTITY"
+    },
+    {
+        "text": "aging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "diagnose",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "developments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neuroimaging techniques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "technology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CT",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET",
+        "label": "ENTITY"
+    },
+    {
+        "text": "scanning",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "markers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "increase",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitive function",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatments",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "faster",
+        "label": "ENTITY"
+    },
+    {
+        "text": "target",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "improvement",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "investigated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "creation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "antibodies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "effectiveness",
+        "label": "ENTITY"
+    },
+    {
+        "text": "removing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid plaques",
+        "label": "ENTITY"
+    },
+    {
+        "text": "improved",
+        "label": "ENTITY"
+    },
+    {
+        "text": "trials",
+        "label": "ENTITY"
+    },
+    {
+        "text": "re-\nsearch",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillation Therapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "miracle",
+        "label": "ENTITY"
+    },
+    {
+        "text": "drugs",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treat",
+        "label": "ENTITY"
+    },
+    {
+        "text": "disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cruel",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "preventing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "slowing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Acknowledgements",
+        "label": "ENTITY"
+    },
+    {
+        "text": "wonderful advisors",
+        "label": "ENTITY"
+    },
+    {
+        "text": "guiding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "project",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dr.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "research",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mrs.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kethar",
+        "label": "ENTITY"
+    },
+    {
+        "text": "writing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "References",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Z.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Comprehensive Review",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Causes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Treatment",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Suk",
+        "label": "ENTITY"
+    },
+    {
+        "text": "H.-J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Milman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Klerman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E. B.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kitchener",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "V. \nS.,",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Banerjee",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Beach",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Blanchard",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Stearns",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gander",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Howard III",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Nieto-Castanon",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Anteraper",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Frequency",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Sensory \nStimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Probable",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mild Alzheimer’s",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Results",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Preliminary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "SSRN \nElectronic Journal",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mattson",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M. P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P. C.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Overview",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Enzymes \nand Products",
+        "label": "ENTITY"
+    },
+    {
+        "text": "NeuroMolecular Medicine",
+        "label": "ENTITY"
+    },
+    {
+        "text": "1–12",
+        "label": "ENTITY"
+    },
+    {
+        "text": "8104-z \nCoronel",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Palmer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "C., Muñiz-Moreno, M.,",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Zambrano",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cano",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Amyloid Precursor Protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "APP",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Derivatives",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Biology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cell Fate Specification",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neural Stem Cells",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Molecular Neurobiology",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Fuh",
+        "label": "ENTITY"
+    },
+    {
+        "text": "J.-L.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Ebenezer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E. G. M.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Dominguez",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Park",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Karanam",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. \nK.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Fluid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Biomarkers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET Imaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Early Diagnosis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Clinical \nImplication",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Management",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "21–37",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n13\n\n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Q.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Colon-Motas",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Pybus",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. F.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Piendel",
+        "label": "ENTITY"
+    },
+    {
+        "text": "L.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Seppa",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Margaret Urban Walker",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Manzanares",
+        "label": "ENTITY"
+    },
+    {
+        "text": "C.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Svjetlana Miocinovic",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Wood",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Levey",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. I.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. C.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "feasibility trial",
+        "label": "ENTITY"
+    },
+    {
+        "text": "patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "prodromal Alzheimer’s disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.1002/trc2.12178 \nIaccarino",
+        "label": "ENTITY"
+    },
+    {
+        "text": "H. F.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Singer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. C.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Martorell",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gao",
+        "label": "ENTITY"
+    },
+    {
+        "text": "F.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gillingham",
+        "label": "ENTITY"
+    },
+    {
+        "text": "T. Z., Mathys",
+        "label": "ENTITY"
+    },
+    {
+        "text": "F.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Adaikkan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "C.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R. G.,",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Rueda",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Brown",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Boyden",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E. S.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "L.- H. \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma frequency",
+        "label": "ENTITY"
+    },
+    {
+        "text": "attenuates",
+        "label": "ENTITY"
+    },
+    {
+        "text": "amyloid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "load",
+        "label": "ENTITY"
+    },
+    {
+        "text": "modifies",
+        "label": "ENTITY"
+    },
+    {
+        "text": "microglia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Nature",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Hofele",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mandelkow",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M. \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "stabilizes",
+        "label": "ENTITY"
+    },
+    {
+        "text": "binding",
+        "label": "ENTITY"
+    },
+    {
+        "text": "tubulin",
+        "label": "ENTITY"
+    },
+    {
+        "text": "heterodimers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "National Academy of Sciences",
+        "label": "ENTITY"
+    },
+    {
+        "text": "United States of America",
+        "label": "ENTITY"
+    },
+    {
+        "text": "7501–7506",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. L.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Suk",
+        "label": "ENTITY"
+    },
+    {
+        "text": "H.-J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Abdurrob",
+        "label": "ENTITY"
+    },
+    {
+        "text": "G. T.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Guan",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kritskiy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mangena",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Brown",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Boyden",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E. S.,",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Singer",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A. \nC., & Tsai",
+        "label": "ENTITY"
+    },
+    {
+        "text": "L.-H.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Multi-sensory Gamma Stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Pathology \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Improves",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cognition",
+        "label": "ENTITY"
+    },
+    {
+        "text": "271.e22",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.1016/j.cell.2019.02.014 \nQing",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Li",
+        "label": "ENTITY"
+    },
+    {
+        "text": "N.-M.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Liu",
+        "label": "ENTITY"
+    },
+    {
+        "text": "K.-F.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Qiu",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Y.-J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Zhang",
+        "label": "ENTITY"
+    },
+    {
+        "text": "H.-H.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mutations",
+        "label": "ENTITY"
+    },
+    {
+        "text": "beta-amyloid \nprecursor protein",
+        "label": "ENTITY"
+    },
+    {
+        "text": "consequence of",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "pathogenesis",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Neural Regeneration Research",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Fernandez",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Milman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Beach",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gander",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Brown",
+        "label": "ENTITY"
+    },
+    {
+        "text": "E.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Boyden",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Sensory gamma frequency stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "cognitively healthy \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "AD",
+        "label": "ENTITY"
+    },
+    {
+        "text": "individuals",
+        "label": "ENTITY"
+    },
+    {
+        "text": "coordinated",
+        "label": "ENTITY"
+    },
+    {
+        "text": "neural oscillation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "preliminary",
+        "label": "ENTITY"
+    },
+    {
+        "text": "invasive",
+        "label": "ENTITY"
+    },
+    {
+        "text": "sensory stimulation",
+        "label": "ENTITY"
+    },
+    {
+        "text": "treating",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s & Dementia, 16(S7)",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.1002/alz.041146 \nSunderland",
+        "label": "ENTITY"
+    },
+    {
+        "text": "T.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Linker",
+        "label": "ENTITY"
+    },
+    {
+        "text": "G.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Putnam",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Friedman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kimmel",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Manetti",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tang",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Bartko",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Decreased β",
+        "label": "ENTITY"
+    },
+    {
+        "text": "-Amyloid1",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Increased",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau \n",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Levels",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cerebrospinal Fluid",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Patients",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JAMA",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Didier",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M.-A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "PET Amyloid Imaging",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Management",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Review",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Literature",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Images",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Diagnostics",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Gamma Oscillations",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Therapeutic Role",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Frontiers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Systems Neuroscience",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.3389/fnsys.2021.782399 \nvan Dyck, C. H., Swanson, C. J.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Bateman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Kanekiyo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Li",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Reyderman",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Cohen",
+        "label": "ENTITY"
+    },
+    {
+        "text": "L.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Katayama",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Vellas",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Watson",
+        "label": "ENTITY"
+    },
+    {
+        "text": "D., Dhadda, S.,",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Irizarry",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Lecanemab",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Early Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.1056/nejmoa2212948 \nVandenberghe",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M.-E.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Caputo",
+        "label": "ENTITY"
+    },
+    {
+        "text": "A.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Sovago",
+        "label": "ENTITY"
+    },
+    {
+        "text": "R. P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Farlow",
+        "label": "ENTITY"
+    },
+    {
+        "text": "M.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "G.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Sanchez",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Scheltens",
+        "label": "ENTITY"
+    },
+    {
+        "text": "P.",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Aβ immunotherapy",
+        "label": "ENTITY"
+    },
+    {
+        "text": "CAD106",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "phase 2b",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s & Dementia",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Translational Research",
+        "label": "ENTITY"
+    },
+    {
+        "text": "https://doi.org/10.1016/j.trci.2016.12.003 \nZhang",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Ma",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Mechanisms",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Tau",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Spread",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Toxicity",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Alzheimer’s Disease",
+        "label": "ENTITY"
+    },
+    {
+        "text": "Frontiers",
+        "label": "ENTITY"
+    },
+    {
+        "text": "JSR.org/hs\n14\n",
+        "label": "ENTITY"
+    }
+]
