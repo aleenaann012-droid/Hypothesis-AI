@@ -1,3 +1,4 @@
+
 from nlp.pdf_extractor import extract_text_from_pdf
 from nlp.entity_extractor import extract_entities
 from nlp.relation_extractor import extract_relations
@@ -13,167 +14,144 @@ from hypothesis.generator import generate_hypothesis
 
 
 # ==========================================
-# TEST PIPELINE
+# HYPOTHESIS-AI PIPELINE
 # ==========================================
 
 PDF_PATH = "test_researchpaper.pdf"
 
 
-print("\n========== HYPOTHESIS-AI PIPELINE ==========\n")
+def main():
+    print("\n========== HYPOTHESIS-AI PIPELINE ==========\n")
 
+    # ------------------------------------------
+    # 1. PDF TEXT EXTRACTION
+    # ------------------------------------------
 
-# ------------------------------------------
-# 1. PDF TEXT EXTRACTION
-# ------------------------------------------
+    print("STEP 1: Extracting PDF text...")
 
-print("STEP 1: Extracting PDF text...")
+    text = extract_text_from_pdf(PDF_PATH)
 
-text = extract_text_from_pdf(PDF_PATH)
+    print("PDF text extracted successfully!")
+    print("Total characters:", len(text))
 
-print("PDF text extracted successfully!")
-print("Total characters:", len(text))
+    # ------------------------------------------
+    # 2. ENTITY EXTRACTION
+    # ------------------------------------------
 
+    print("\nSTEP 2: Extracting entities...")
 
-# ------------------------------------------
-# 2. ENTITY EXTRACTION
-# ------------------------------------------
+    entities = extract_entities(text)
 
-print("\nSTEP 2: Extracting entities...")
+    print("Total entities:", len(entities))
+    print("\nSample entities:")
 
-entities = extract_entities(text)
+    for entity in entities[:20]:
+        print(entity)
 
-print("Total entities:", len(entities))
+    # ------------------------------------------
+    # 3. RELATION EXTRACTION
+    # ------------------------------------------
 
-print("\nSample entities:")
+    print("\nSTEP 3: Extracting relations...")
 
-for entity in entities[:20]:
-    print(entity)
+    relations = extract_relations(text)
 
+    print("Total relations:", len(relations))
+    print("\nSample relations:")
 
-# ------------------------------------------
-# 3. RELATION EXTRACTION
-# ------------------------------------------
+    for relation in relations[:20]:
+        print(
+            relation["subject"],
+            "->",
+            relation["relation"],
+            "->",
+            relation["object"]
+        )
 
-print("\nSTEP 3: Extracting relations...")
+    # ------------------------------------------
+    # 4. LOAD EMBEDDINGS
+    # ------------------------------------------
 
-relations = extract_relations(text)
+    print("\nSTEP 4: Loading embeddings...")
 
-print("Total relations:", len(relations))
+    embeddings = load_embeddings()
 
-print("\nSample relations:")
+    print("Embedding shape:", embeddings.shape)
 
-for relation in relations[:20]:
-    print(
-        relation["subject"],
-        "->",
-        relation["relation"],
-        "->",
-        relation["object"]
+    # ------------------------------------------
+    # 5. LOAD TEXT CHUNKS
+    # ------------------------------------------
+
+    print("\nSTEP 5: Loading text chunks...")
+
+    chunks = load_chunks()
+
+    print("Total chunks:", len(chunks))
+
+    # ------------------------------------------
+    # 6. CREATE FAISS INDEX
+    # ------------------------------------------
+
+    print("\nSTEP 6: Creating FAISS index...")
+
+    index = create_faiss_index(embeddings)
+
+    print("FAISS index created successfully!")
+    print("Total vectors:", index.ntotal)
+    print("Vector dimension:", index.d)
+
+    # ------------------------------------------
+    # 7. SEARCH
+    # ------------------------------------------
+
+    query = input("\nEnter your research question: ")
+
+    print("\nSTEP 7: Searching research paper...")
+
+    scores, indices = search(
+        query,
+        index,
+        top_k=3
     )
 
+    print("\n========== SEARCH RESULTS ==========")
 
-# ------------------------------------------
-# 4. LOAD EMBEDDINGS
-# ------------------------------------------
+    retrieved_text = ""
 
-print("\nSTEP 4: Loading embeddings...")
+    for rank, (idx, score) in enumerate(
+        zip(indices, scores),
+        start=1
+    ):
+        print(f"\n--- Result {rank} ---")
+        print("Chunk:", idx)
+        print(f"Similarity Score: {score:.4f}")
 
-embeddings = load_embeddings()
+        if 0 <= idx < len(chunks):
+            print("\nText:")
+            print(chunks[idx][:1000])
 
-print("Embedding shape:", embeddings.shape)
+            retrieved_text += chunks[idx] + "\n"
 
+    # ------------------------------------------
+    # 8. HYPOTHESIS GENERATION
+    # ------------------------------------------
 
-# ------------------------------------------
-# 5. LOAD TEXT CHUNKS
-# ------------------------------------------
+    print("\nSTEP 8: Generating hypothesis...")
 
-print("\nSTEP 5: Loading text chunks...")
+    if retrieved_text.strip():
+        hypothesis = generate_hypothesis(retrieved_text)
 
-chunks = load_chunks()
+        print(
+            "\n========== GENERATED HYPOTHESIS ==========\n"
+        )
+        print(hypothesis)
+    else:
+        print("No relevant research text found.")
 
-print("Total chunks:", len(chunks))
-
-
-# ------------------------------------------
-# 6. CREATE FAISS INDEX
-# ------------------------------------------
-
-print("\nSTEP 6: Creating FAISS index...")
-
-index = create_faiss_index(embeddings)
-
-print("FAISS index created successfully!")
-print("Total vectors:", index.ntotal)
-print("Vector dimension:", index.d)
-
-
-# ------------------------------------------
-# 7. SEARCH
-# ------------------------------------------
-
-query = input(
-    "\nEnter your research question: "
-)
-
-print("\nSTEP 7: Searching research paper...")
-
-scores, indices = search(
-    query,
-    index,
-    top_k=3
-)
+    print("\n========== PIPELINE COMPLETE ==========\n")
 
 
-print("\n========== SEARCH RESULTS ==========")
-
-
-# Store retrieved text
-retrieved_text = ""
-
-
-for rank, (idx, score) in enumerate(
-    zip(indices, scores),
-    start=1
-):
-
-    print(f"\n--- Result {rank} ---")
-
-    print("Chunk:", idx)
-
-    print(
-        f"Similarity Score: {score:.4f}"
-    )
-
-    if idx < len(chunks):
-
-        print("\nText:")
-
-        print(chunks[idx][:1000])
-
-        retrieved_text += chunks[idx] + "\n"
-
-
-# ------------------------------------------
-# 8. HYPOTHESIS GENERATION
-# ------------------------------------------
-
-print("\nSTEP 8: Generating hypothesis...")
-
-if retrieved_text.strip():
-
-    hypothesis = generate_hypothesis(
-        retrieved_text
-    )
-
-    print(
-        "\n========== GENERATED HYPOTHESIS ==========\n"
-    )
-
-    print(hypothesis)
-
-else:
-
-    print("No relevant research text found.")
-
-
-print("\n========== PIPELINE COMPLETE ==========\n")
+# Run only when this file is executed directly.
+# Importing it during pytest collection will not run the pipeline.
+if __name__ == "__main__":
+    main()

@@ -26,6 +26,17 @@ class GraphBuilder:
             CREATE CONSTRAINT entity_id_unique IF NOT EXISTS
             FOR (e:Entity)
             REQUIRE e.entity_id IS UNIQUE
+            """,
+            """
+            CREATE CONSTRAINT claim_id_unique IF NOT EXISTS
+            FOR (c:Claim)
+            REQUIRE c.claim_id IS UNIQUE
+            """,
+        
+            """
+            CREATE CONSTRAINT evidence_id_unique IF NOT EXISTS
+            FOR (ev:Evidence)
+            REQUIRE ev.evidence_id IS UNIQUE
             """
 
         ]
@@ -143,6 +154,74 @@ class GraphBuilder:
                 source_id=source_id,
                 target_id=target_id
             )
+    
+        
+    def create_evidence_claim(
+        self,
+        claim_id,
+        evidence_id,
+        paper_id,
+        subject_id,
+        object_id,
+        predicate,
+        evidence_text,
+        sentence_start,
+        sentence_end,
+        relation_start,
+        relation_end,
+        subject_label,
+        object_label,
+        extraction_method,
+        validation_status
+    ):
+        query = """
+        MATCH (p:Paper {paper_id: $paper_id})
+        MATCH (s:Entity {entity_id: $subject_id})
+        MATCH (o:Entity {entity_id: $object_id})
+
+        MERGE (c:Claim {claim_id: $claim_id})
+        SET c.predicate = $predicate,
+        c.subject_label = $subject_label,
+        c.object_label = $object_label,
+        c.extraction_method = $extraction_method,
+        c.extractor_version = $extractor_version,
+        c.validation_status = $validation_status
+
+        MERGE (ev:Evidence {evidence_id: $evidence_id})
+        SET ev.text = $evidence_text,
+            ev.sentence_start = $sentence_start,
+            ev.sentence_end = $sentence_end,
+            ev.relation_start = $relation_start,
+            ev.relation_end = $relation_end
+
+        MERGE (p)-[:HAS_EVIDENCE]->(ev)
+        MERGE (ev)-[:SUPPORTS_CLAIM]->(c)
+        MERGE (c)-[:SUBJECT]->(s)
+        MERGE (c)-[:OBJECT]->(o)
+        """
+        
+
+        with self.db.driver.session() as session:
+            session.run(
+                query,
+                claim_id=claim_id,
+                evidence_id=evidence_id,
+                paper_id=paper_id,
+                subject_id=subject_id,
+                object_id=object_id,
+                predicate=predicate,
+                evidence_text=evidence_text,
+                sentence_start=sentence_start,
+                sentence_end=sentence_end,
+                relation_start=relation_start,
+                relation_end=relation_end,
+                subject_label=subject_label,
+                object_label=object_label,
+                extraction_method=extraction_method,
+                validation_status=validation_status,
+                extractor_version="dependency_v2"
+            )
+
 
     # -----------------------------------------
     # CLOSE DATABASE
