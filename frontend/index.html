@@ -1,246 +1,923 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
-    <title>HypothesisAI</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypothesisAI — Scientific Discovery Assistant</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --bg-color: #0d1117;
+            --surface-color: #161b22;
+            --surface-border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-color: #2f81f7;
+            --accent-hover: #388bfd;
+            --badge-warning-bg: rgba(210, 153, 34, 0.15);
+            --badge-warning-border: #d29922;
+            --badge-warning-text: #e3b341;
+            --badge-success-bg: rgba(46, 160, 67, 0.15);
+            --badge-success-border: #2ea043;
+            --badge-success-text: #3fb950;
+            --card-radius: 8px;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 30px;
-            background: #f5f6f8;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--surface-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         h1 {
-            margin-bottom: 5px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .subtitle {
-            color: #666;
-            margin-bottom: 25px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--badge-success-bg);
+            border: 1px solid var(--badge-success-border);
+            color: var(--badge-success-text);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 8px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid transparent;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            background: var(--surface-color);
+            border-color: var(--surface-border);
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
         }
 
         .card {
-            background: white;
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--card-radius);
             padding: 20px;
             margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        button {
-            padding: 10px 18px;
-            margin: 5px;
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px 14px;
+            background: #0d1117;
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, textarea:focus, select:focus {
+            border-color: var(--accent-color);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button.btn-primary {
+            background: var(--accent-color);
+            color: #ffffff;
             border: none;
+            padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
         }
 
-        input {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ccc;
+        button.btn-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        button.btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--surface-border);
+            padding: 9px 18px;
             border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
         }
 
-        pre {
-            background: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
+        button.btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #8b949e;
+        }
+
+        .warning-banner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--badge-warning-bg);
+            border: 1px solid var(--badge-warning-border);
+            color: var(--badge-warning-text);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+
+        .hypothesis-box {
+            background: rgba(47, 129, 247, 0.06);
+            border: 1px solid rgba(47, 129, 247, 0.25);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .hypothesis-statement {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .variable-item {
+            background: #0d1117;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--surface-border);
+        }
+
+        .variable-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .variable-value {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+
+        .evidence-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .evidence-card {
+            background: #0d1117;
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 14px;
+        }
+
+        .evidence-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .page-badge {
+            background: rgba(47, 129, 247, 0.15);
+            color: var(--accent-hover);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(47, 129, 247, 0.3);
+        }
+
+        .offset-tag {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .evidence-text {
+            font-size: 0.9rem;
+            color: #c9d1d9;
+            font-style: italic;
+        }
+
+        .experiment-card {
+            background: #0d1117;
+            border-left: 3px solid var(--accent-color);
+            padding: 12px 16px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 10px;
+        }
+
+        .experiment-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .gap-card {
+            background: #0d1117;
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .gap-path {
+            font-family: monospace;
+            color: var(--accent-hover);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .gap-hypothesis {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        pre.raw-output {
+            background: #0d1117;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid var(--surface-border);
+            color: #8b949e;
+            font-family: monospace;
+            font-size: 0.85rem;
             overflow-x: auto;
-            white-space: pre-wrap;
+            max-height: 400px;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
-
 </head>
-
-
 <body>
 
-    <h1>HypothesisAI</h1>
+    <header>
+        <div>
+            <h1>HypothesisAI</h1>
+            <div class="subtitle">Evidence-grounded scientific discovery assistant with provenance traceability</div>
+        </div>
+        <div id="systemStatus" class="status-badge">
+            <span style="font-size: 1rem;">&#9679;</span> Checking System...
+        </div>
+    </header>
 
-    <div class="subtitle">
-        AI-powered scientific discovery assistant
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-hypothesis')">Hypothesis & Discovery</button>
+        <button class="tab-btn" onclick="switchTab('tab-upload')">Upload Research PDF</button>
+        <button class="tab-btn" onclick="switchTab('tab-gaps')">Research Gaps & Multi-Hop</button>
+        <button class="tab-btn" onclick="switchTab('tab-graph')">Knowledge Graph</button>
+        <button class="tab-btn" onclick="switchTab('tab-raw')">Raw JSON Inspection</button>
     </div>
 
+    <!-- TAB 0: UPLOAD RESEARCH PDF -->
+    <div id="tab-upload" class="tab-pane">
+        <div class="card">
+            <h2>Ingest Scientific Research Paper</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">
+                Upload a peer-reviewed PDF paper. The pipeline extracts text page-by-page, generates 384-dimensional BGE embeddings, indexes vectors into FAISS, and extracts verified entities and relationships into the Neo4j knowledge graph.
+            </p>
+            <div class="form-group">
+                <label for="pdfFileInput">Select PDF Document</label>
+                <input type="file" id="pdfFileInput" accept=".pdf" style="padding: 8px; background: #0d1117; border: 1px solid var(--surface-border); border-radius: 6px; width: 100%; color: var(--text-primary);">
+            </div>
+            <div class="form-group">
+                <label for="customPaperId">Paper ID / Reference Code (Optional)</label>
+                <input type="text" id="customPaperId" placeholder="e.g. AD-2024-TREATMENT">
+            </div>
+            <button class="btn-primary" id="btnUploadPaper" onclick="handlePdfUpload()">
+                Process & Ingest Paper
+            </button>
+            <div id="uploadStatusMsg" style="margin-top: 14px; display: none;"></div>
+        </div>
 
-    <div class="card">
-
-        <h2>Knowledge Graph</h2>
-
-        <button onclick="loadGraph()">
-            Load Graph Data
-        </button>
-
+        <div id="uploadResultCard" class="card" style="display: none;">
+            <h2 style="color: #3fb950;">Ingestion Successful</h2>
+            <div id="uploadResultDetails"></div>
+        </div>
     </div>
 
+    <!-- TAB 1: HYPOTHESIS & RETRIEVAL -->
+    <div id="tab-hypothesis" class="tab-pane active">
+        <div class="card">
+            <h2>Research Question</h2>
+            <div class="form-group">
+                <label for="researchQuery">Ask a scientific question or target relationship</label>
+                <textarea id="researchQuery" placeholder="e.g. How does neuroinflammation relate to amyloid-beta aggregation in Alzheimer's disease?">How does neuroinflammation relate to amyloid-beta aggregation in Alzheimer's disease?</textarea>
+            </div>
+            <div class="controls-row">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <label for="topK" style="margin-bottom: 0;">Top-K Evidence:</label>
+                    <select id="topK" style="width: 70px;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="btnGenHypothesis" onclick="generateHypothesis()">
+                    Generate Testable Hypothesis
+                </button>
+                <button class="btn-secondary" id="btnRetrieveOnly" onclick="retrieveEvidenceOnly()">
+                    Retrieve Evidence Only
+                </button>
+            </div>
+        </div>
 
-    <div class="card">
+        <div id="resultsContainer" style="display: none;">
+            <div class="card">
+                <div class="warning-banner">
+                    <strong>DISCLAIMER:</strong>
+                    <span>All AI-generated hypotheses are marked <strong>UNVALIDATED</strong> and require formal experimental verification. Citations are grounded directly in indexed paper chunks.</span>
+                </div>
 
-        <h2>Search Entity</h2>
+                <div id="hypothesisView" style="display: none;">
+                    <h2 style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>Proposed Hypothesis</span>
+                        <span class="status-badge" style="background: var(--badge-warning-bg); border-color: var(--badge-warning-border); color: var(--badge-warning-text);">
+                            UNVALIDATED PROPOSAL
+                        </span>
+                    </h2>
 
-        <input id="entityInput" placeholder="Example: APOE">
+                    <div class="hypothesis-box">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                            <span id="confidenceBadge" class="status-badge" style="background: rgba(47, 129, 247, 0.15); border-color: rgba(47, 129, 247, 0.4); color: #58a6ff;">Confidence: Computing...</span>
+                            <span id="similarityBadge" style="font-size: 0.8rem; color: var(--text-secondary); font-family: monospace;"></span>
+                        </div>
+                        <div class="hypothesis-statement" id="hypoStatement"></div>
+                        <div id="hypoSummary" style="color: var(--text-secondary); font-size: 0.9rem;"></div>
+                    </div>
 
-        <button onclick="searchEntity()">
-            Search
-        </button>
+                    <div id="variablesSection" style="display: none;">
+                        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 8px;">Key Variables & Mechanism</h3>
+                        <div class="variables-grid" id="variablesGrid"></div>
+                    </div>
 
+                    <div id="experimentsSection" style="display: none; margin-top: 20px;">
+                        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 8px;">Proposed Validation Experiments</h3>
+                        <div id="experimentsList"></div>
+                    </div>
+
+                    <div id="uncertaintySection" style="margin-top: 20px;">
+                        <h3 style="font-size: 1rem; color: #fff; margin-bottom: 8px;">Uncertainty & Gaps</h3>
+                        <div id="uncertaintyContent" style="color: var(--text-secondary); font-size: 0.9rem;"></div>
+                    </div>
+                </div>
+
+                <div id="evidenceSection" style="margin-top: 24px;">
+                    <h2 style="font-size: 1.15rem; color: #fff; border-top: 1px solid var(--surface-border); padding-top: 20px;">
+                        Supporting Source Evidence (<span id="evidenceCount">0</span> Chunks)
+                    </h2>
+                    <div class="evidence-list" id="evidenceList"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- TAB 2: RESEARCH GAPS -->
+    <div id="tab-gaps" class="tab-pane">
+        <div class="card">
+            <h2>Graph-Based Research Gap Discovery</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">
+                Identifies 2-hop open triangles in the knowledge graph: entity pairs (A) and (C) connected via an intermediate bridge (B), but lacking an explored direct relationship.
+            </p>
+            <button class="btn-primary" onclick="loadResearchGaps()">Discover Unexplored Gaps</button>
+        </div>
 
-    <div class="card">
-
-        <h2>Potential Missing Connections</h2>
-
-        <button onclick="loadMissingLinks()">
-            Detect Connections
-        </button>
-
+        <div id="gapsContainer" style="display: none;" class="card">
+            <h2>Identified Research Gaps (<span id="gapsCount">0</span>)</h2>
+            <div id="gapsList"></div>
+        </div>
     </div>
 
-
-    <div class="card">
-
-        <h2>Results</h2>
-
-        <pre id="output">
-Results will appear here...
-        </pre>
-
+    <!-- TAB 3: KNOWLEDGE GRAPH -->
+    <div id="tab-graph" class="tab-pane">
+        <div class="card">
+            <h2>Search Entity in Graph</h2>
+            <div class="controls-row">
+                <input type="text" id="entitySearchInput" placeholder="e.g. APOE, Amyloid beta, Alzheimer's disease" style="max-width: 360px;">
+                <button class="btn-primary" onclick="searchEntity()">Search Entity</button>
+                <button class="btn-secondary" onclick="loadGraphOverview()">Load Graph Overview</button>
+            </div>
+        </div>
+        <div id="graphResultsCard" class="card" style="display: none;">
+            <h2 id="graphResultsTitle">Graph Results</h2>
+            <div id="graphResultsContent"></div>
+        </div>
     </div>
 
+    <!-- TAB 4: RAW JSON -->
+    <div id="tab-raw" class="tab-pane">
+        <div class="card">
+            <h2>Raw API Response</h2>
+            <pre class="raw-output" id="rawOutput">No queries executed yet.</pre>
+        </div>
+    </div>
 
     <script>
+        // Use same hostname if served from API, or default to current origin / 127.0.0.1:8000
+        const defaultHost = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "127.0.0.1";
+        const API_BASE = window.API_BASE_OVERRIDE || `http://${defaultHost}:8000`;
 
-        const API = "http://127.0.0.1:8000";
-
-
-        async function loadGraph() {
-
+        async function checkHealth() {
+            const badge = document.getElementById("systemStatus");
             try {
-
-                const response =
-                    await fetch(`${API}/graph`);
-
-                const data =
-                    await response.json();
-
-                document.getElementById(
-                    "output"
-                ).textContent =
-                    JSON.stringify(
-                        data,
-                        null,
-                        2
-                    );
-
+                badge.innerHTML = `&#9679; Connecting to ${API_BASE}...`;
+                const res = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(5000) });
+                const data = await res.json();
+                if (data.status === "healthy" || data.retrieval === "ready") {
+                    badge.innerHTML = `&#9679; Ready (${data.indexed_chunks} chunks, ${data.working_llm})`;
+                    badge.style.background = "var(--badge-success-bg)";
+                    badge.style.borderColor = "var(--badge-success-border)";
+                    badge.style.color = "var(--badge-success-text)";
+                } else {
+                    badge.innerHTML = `&#9679; Service Degraded`;
+                    badge.style.background = "var(--badge-warning-bg)";
+                    badge.style.borderColor = "var(--badge-warning-border)";
+                    badge.style.color = "var(--badge-warning-text)";
+                }
+            } catch (err) {
+                console.error("Health check error:", err);
+                badge.innerHTML = `&#9679; API Offline (${API_BASE}) <button onclick="checkHealth()" style="margin-left:8px;padding:2px 6px;font-size:0.75rem;cursor:pointer;background:#f85149;color:#fff;border:none;border-radius:4px;">Retry</button>`;
+                badge.style.background = "rgba(248, 81, 73, 0.15)";
+                badge.style.borderColor = "#f85149";
+                badge.style.color = "#f85149";
             }
+        }
+        checkHealth();
 
-            catch (error) {
-
-                showError(error);
-
-            }
-
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
         }
 
+        function setRawOutput(data) {
+            document.getElementById("rawOutput").textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function generateHypothesis() {
+            const query = document.getElementById("researchQuery").value.trim();
+            const topK = parseInt(document.getElementById("topK").value, 10);
+            if (!query) return alert("Please enter a research question.");
+
+            const btn = document.getElementById("btnGenHypothesis");
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="loading-spinner"></span> Generating...`;
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(`${API_BASE}/hypothesis`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: query, top_k: topK })
+                });
+                const data = await res.json();
+                setRawOutput(data);
+
+                if (!res.ok) throw new Error(data.detail || "API request failed");
+
+                renderHypothesisResults(data);
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        async function retrieveEvidenceOnly() {
+            const query = document.getElementById("researchQuery").value.trim();
+            const topK = parseInt(document.getElementById("topK").value, 10);
+            if (!query) return alert("Please enter a search query.");
+
+            const btn = document.getElementById("btnRetrieveOnly");
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="loading-spinner"></span> Retrieving...`;
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(`${API_BASE}/retrieve`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: query, top_k: topK })
+                });
+                const data = await res.json();
+                setRawOutput(data);
+
+                if (!res.ok) throw new Error(data.detail || "API request failed");
+
+                renderRetrievalOnly(data);
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        async function handlePdfUpload() {
+            const fileInput = document.getElementById("pdfFileInput");
+            const paperIdInput = document.getElementById("customPaperId");
+            const statusMsg = document.getElementById("uploadStatusMsg");
+            const resultCard = document.getElementById("uploadResultCard");
+            const resultDetails = document.getElementById("uploadResultDetails");
+
+            if (!fileInput.files || fileInput.files.length === 0) {
+                return alert("Please select a PDF file to upload.");
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+            if (paperIdInput.value.trim()) {
+                formData.append("paper_id", paperIdInput.value.trim());
+            }
+
+            const btn = document.getElementById("btnUploadPaper");
+            const origText = btn.innerHTML;
+            btn.innerHTML = `<span class="loading-spinner"></span> Extracting & Indexing...`;
+            btn.disabled = true;
+
+            statusMsg.style.display = "block";
+            statusMsg.innerHTML = `<span style="color: var(--accent-hover);">Processing paper: extracting pages, generating BGE embeddings, and indexing in FAISS...</span>`;
+            resultCard.style.display = "none";
+
+            try {
+                const res = await fetch(`${API_BASE}/upload-paper`, {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await res.json();
+                setRawOutput(data);
+
+                if (!res.ok) {
+                    throw new Error(data.detail || "Failed to process PDF.");
+                }
+
+                statusMsg.innerHTML = `<span style="color: #3fb950; font-weight: 600;">Paper ingested successfully!</span>`;
+                resultCard.style.display = "block";
+                resultDetails.innerHTML = `
+                    <div style="font-size: 0.95rem; line-height: 1.8;">
+                        <div><strong>Paper ID:</strong> <span class="page-badge">${data.paper_id}</span></div>
+                        <div><strong>Extracted Pages:</strong> ${data.extracted_pages} pages (${data.character_count.toLocaleString()} characters)</div>
+                        <div><strong>Indexed Chunks:</strong> +${data.new_chunks_indexed} new chunks (Total in Session: ${data.total_indexed_chunks})</div>
+                        <div><strong>FAISS Dimension:</strong> ${data.vector_dimension}-d cosine similarity index</div>
+                        <div><strong>Knowledge Graph:</strong> ${data.neo4j_import}</div>
+                        <div style="margin-top: 10px; color: var(--text-secondary); font-size: 0.85rem;">
+                            You can now ask questions about this paper in the <strong>Hypothesis & Discovery</strong> tab!
+                        </div>
+                    </div>
+                `;
+                checkHealth();
+            } catch (err) {
+                statusMsg.innerHTML = `<span style="color: #f85149; font-weight: 600;">Error: ${err.message}</span>`;
+            } finally {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }
+        }
+
+        function renderHypothesisResults(data) {
+            document.getElementById("resultsContainer").style.display = "block";
+            document.getElementById("hypothesisView").style.display = "block";
+
+            const struct = data.structured_hypothesis || {};
+            document.getElementById("hypoStatement").textContent = struct.statement || data.hypothesis || "No statement generated.";
+            document.getElementById("hypoSummary").textContent = struct.summary || "";
+
+            // Confidence assessment
+            const conf = struct.confidence_assessment || {};
+            const confBadge = document.getElementById("confidenceBadge");
+            const simBadge = document.getElementById("similarityBadge");
+
+            const level = (conf.scientific_confidence || "moderate").toLowerCase();
+            const score = conf.confidence_score !== undefined ? conf.confidence_score : "N/A";
+            const maxSim = conf.retrieval_similarity !== undefined ? conf.retrieval_similarity : "N/A";
+
+            if (conf.scope === "out_of_scope" || level === "low") {
+                confBadge.textContent = `Scientific Confidence: LOW (${score})`;
+                confBadge.style.background = "rgba(248, 81, 73, 0.15)";
+                confBadge.style.borderColor = "#f85149";
+                confBadge.style.color = "#f85149";
+            } else if (level === "high") {
+                confBadge.textContent = `Scientific Confidence: HIGH (${score})`;
+                confBadge.style.background = "var(--badge-success-bg)";
+                confBadge.style.borderColor = "var(--badge-success-border)";
+                confBadge.style.color = "var(--badge-success-text)";
+            } else {
+                confBadge.textContent = `Scientific Confidence: MODERATE (${score})`;
+                confBadge.style.background = "var(--badge-warning-bg)";
+                confBadge.style.borderColor = "var(--badge-warning-border)";
+                confBadge.style.color = "var(--badge-warning-text)";
+            }
+
+            simBadge.textContent = `Top Retrieval Similarity: ${maxSim} (Cosine)`;
+
+            // Variables
+            const varsGrid = document.getElementById("variablesGrid");
+            varsGrid.innerHTML = "";
+            const coreVars = struct.core_variables || {};
+            if (Object.keys(coreVars).length > 0) {
+                document.getElementById("variablesSection").style.display = "block";
+                for (const [key, val] of Object.entries(coreVars)) {
+                    const item = document.createElement("div");
+                    item.className = "variable-item";
+                    item.innerHTML = `<div class="variable-label">${key.replace('_', ' ')}</div><div class="variable-value">${val}</div>`;
+                    varsGrid.appendChild(item);
+                }
+            } else {
+                document.getElementById("variablesSection").style.display = "none";
+            }
+
+            // Experiments
+            const expList = document.getElementById("experimentsList");
+            expList.innerHTML = "";
+            const exps = struct.proposed_experiments || [];
+            if (exps.length > 0) {
+                document.getElementById("experimentsSection").style.display = "block";
+                exps.forEach(exp => {
+                    const card = document.createElement("div");
+                    card.className = "experiment-card";
+                    card.innerHTML = `
+                        <div class="experiment-title">${exp.title || "Experiment"}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px;"><strong>Method:</strong> ${exp.methodology || ""}</div>
+                        <div style="font-size: 0.85rem; color: #3fb950;"><strong>Expected Outcome:</strong> ${exp.expected_outcome || ""}</div>
+                    `;
+                    expList.appendChild(card);
+                });
+            } else {
+                document.getElementById("experimentsSection").style.display = "none";
+            }
+
+            // Uncertainty
+            const unc = struct.uncertainty_assessment || {};
+            const uncEl = document.getElementById("uncertaintyContent");
+            if (typeof unc === "object") {
+                uncEl.innerHTML = `
+                    <div style="margin-bottom: 4px;"><strong>Uncertainty Level:</strong> <span style="text-transform: uppercase; color: #e3b341;">${unc.level || "moderate"}</span></div>
+                    <div>${unc.rationale || "Requires independent experimental verification."}</div>
+                `;
+            } else {
+                uncEl.textContent = String(unc);
+            }
+
+            // Evidence
+            renderEvidenceCards(data.evidence || []);
+        }
+
+        function renderRetrievalOnly(data) {
+            document.getElementById("resultsContainer").style.display = "block";
+            document.getElementById("hypothesisView").style.display = "none";
+            renderEvidenceCards(data.evidence || []);
+        }
+
+        function renderEvidenceCards(evidence) {
+            document.getElementById("evidenceCount").textContent = evidence.length;
+            const container = document.getElementById("evidenceList");
+            container.innerHTML = "";
+
+            evidence.forEach((item, idx) => {
+                const card = document.createElement("div");
+                card.className = "evidence-card";
+
+                const pagesStr = (item.page_references && item.page_references.length > 0)
+                    ? item.page_references.join(", ")
+                    : (item.start_page ? `${item.start_page}` : "N/A");
+
+                const sim = (item.similarity !== undefined) ? item.similarity.toFixed(4) : "N/A";
+                const exactOffsets = (item.exact_document_start !== undefined)
+                    ? `Exact PDF: [${item.exact_document_start} - ${item.exact_document_end}]`
+                    : "";
+                const normOffsets = (item.normalized_document_start !== undefined)
+                    ? `Normalized: [${item.normalized_document_start} - ${item.normalized_document_end}]`
+                    : "";
+
+                card.innerHTML = `
+                    <div class="evidence-meta">
+                        <div>
+                            <strong>Chunk #${item.chunk_id !== undefined ? item.chunk_id : idx}</strong> &nbsp;
+                            <span class="page-badge">Page ${pagesStr}</span>
+                        </div>
+                        <div>
+                            <span style="color: #3fb950; font-weight: 500;">Similarity: ${sim}</span> &nbsp;
+                            <span class="offset-tag">${exactOffsets} | ${normOffsets}</span>
+                        </div>
+                    </div>
+                    <div class="evidence-text">"${item.text}"</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function loadResearchGaps() {
+            try {
+                const res = await fetch(`${API_BASE}/research-gaps?limit=20`);
+                const data = await res.json();
+                setRawOutput(data);
+
+                document.getElementById("gapsContainer").style.display = "block";
+                document.getElementById("gapsCount").textContent = data.count || 0;
+                const list = document.getElementById("gapsList");
+                list.innerHTML = "";
+
+                if (!data.gaps || data.gaps.length === 0) {
+                    list.innerHTML = "<p style='color: var(--text-secondary);'>No missing links detected.</p>";
+                    return;
+                }
+
+                data.gaps.forEach(gap => {
+                    const card = document.createElement("div");
+                    card.className = "gap-card";
+                    card.innerHTML = `
+                        <div class="gap-path">${gap.bridge_path}</div>
+                        <div class="gap-hypothesis"><strong>Mediator Hypothesis:</strong> ${gap.hypothesized_relationship}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 6px;">
+                            Status: <span style="color: #e3b341;">${gap.validation_status}</span> &bull; Bridge Entity: ${gap.bridge} (${gap.bridge_type})
+                        </div>
+                    `;
+                    list.appendChild(card);
+                });
+            } catch (err) {
+                alert(`Error loading gaps: ${err.message}`);
+            }
+        }
 
         async function searchEntity() {
-
-            const name =
-                document.getElementById(
-                    "entityInput"
-                ).value;
-
-            if (!name) {
-
-                alert(
-                    "Please enter an entity name."
-                );
-
-                return;
-
-            }
+            const name = document.getElementById("entitySearchInput").value.trim();
+            if (!name) return alert("Please enter an entity name.");
 
             try {
+                const res = await fetch(`${API_BASE}/entity/${encodeURIComponent(name)}`);
+                const data = await res.json();
+                setRawOutput(data);
 
-                const response =
-                    await fetch(
-                        `${API}/entity/`
-                        + encodeURIComponent(name)
-                    );
+                const card = document.getElementById("graphResultsCard");
+                card.style.display = "block";
+                document.getElementById("graphResultsTitle").textContent = `Entity Connections: ${data.entity}`;
 
-                const data =
-                    await response.json();
-
-                document.getElementById(
-                    "output"
-                ).textContent =
-                    JSON.stringify(
-                        data,
-                        null,
-                        2
-                    );
-
+                const content = document.getElementById("graphResultsContent");
+                if (data.data && data.data.length > 0) {
+                    content.innerHTML = data.data.map(item => `
+                        <div style="padding: 8px 0; border-bottom: 1px solid var(--surface-border); font-size: 0.9rem;">
+                            <strong>${item.entity}</strong> (${item.type}) 
+                            &rarr; <span style="color: var(--accent-hover);">${item.relationship || "RELATED_TO"}</span> 
+                            &rarr; <strong>${item.connected_entity || "None"}</strong> (${item.connected_type || ""})
+                        </div>
+                    `).join("");
+                } else {
+                    content.innerHTML = "<p>No connections found.</p>";
+                }
+            } catch (err) {
+                alert(`Entity lookup error: ${err.message}`);
             }
-
-            catch (error) {
-
-                showError(error);
-
-            }
-
         }
 
-
-        async function loadMissingLinks() {
-
+        async function loadGraphOverview() {
             try {
+                const res = await fetch(`${API_BASE}/graph`);
+                const data = await res.json();
+                setRawOutput(data);
 
-                const response =
-                    await fetch(
-                        `${API}/missing-links`
-                    );
+                const card = document.getElementById("graphResultsCard");
+                card.style.display = "block";
+                document.getElementById("graphResultsTitle").textContent = `Knowledge Graph Overview (${data.data ? data.data.length : 0} Relationships)`;
 
-                const data =
-                    await response.json();
-
-                document.getElementById(
-                    "output"
-                ).textContent =
-                    JSON.stringify(
-                        data,
-                        null,
-                        2
-                    );
-
+                const content = document.getElementById("graphResultsContent");
+                if (data.data && data.data.length > 0) {
+                    content.innerHTML = data.data.slice(0, 30).map(item => `
+                        <div style="padding: 6px 0; border-bottom: 1px solid var(--surface-border); font-size: 0.85rem;">
+                            ${item.source} (${item.source_type}) &mdash;[${item.relationship}]&rarr; ${item.target} (${item.target_type})
+                        </div>
+                    `).join("") + (data.data.length > 30 ? "<p style='color: var(--text-secondary); margin-top: 8px;'>...showing first 30 relationships</p>" : "");
+                } else {
+                    content.innerHTML = "<p>No graph relationships found.</p>";
+                }
+            } catch (err) {
+                alert(`Graph error: ${err.message}`);
             }
-
-            catch (error) {
-
-                showError(error);
-
-            }
-
         }
-
-
-        function showError(error) {
-
-            document.getElementById(
-                "output"
-            ).textContent =
-                "Error: " + error;
-
-        }
-
     </script>
-
-
 </body>
-
 </html>

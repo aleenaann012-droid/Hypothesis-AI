@@ -14,6 +14,7 @@ from hypothesis.generator import generate_hypothesis
 BASE_DIR = Path(__file__).resolve().parent
 EMBEDDING_FILE = BASE_DIR / "embeddings.npy"
 CHUNKS_FILE = BASE_DIR / "chunks.txt"
+PROVENANCE_FILE = BASE_DIR / "chunk_provenance.json"
 
 
 # Load BGE model
@@ -41,6 +42,17 @@ def load_chunks():
     chunks = [chunk.strip() for chunk in chunks if chunk.strip()]
 
     return chunks
+
+
+def load_provenance():
+    """
+    Load chunk provenance metadata mapping chunks to original PDF pages and offsets.
+    """
+    if PROVENANCE_FILE.exists():
+        import json
+        with open(PROVENANCE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
 
 
 def create_faiss_index(embeddings):
@@ -79,6 +91,47 @@ def search(query, index, top_k=3):
     )
 
     return scores[0], indices[0]
+
+
+def search_with_provenance(query, index, top_k=3, chunks=None, provenance=None):
+    """
+    Search FAISS and return retrieved chunks enriched with full provenance metadata.
+    Distinguishes normalized offsets from exact original PDF offsets.
+    """
+    if chunks is None:
+        chunks = load_chunks()
+    if provenance is None:
+        provenance = load_provenance()
+
+    prov_lookup = {p.get("chunk_index"): p for p in provenance}
+    scores, indices = search(query, index, top_k=top_k)
+
+    results = []
+    for idx, score in zip(indices, scores):
+        idx = int(idx)
+        if 0 <= idx < len(chunks):
+            prov = prov_lookup.get(idx, {})
+            start_p = prov.get("start_page")
+            end_p = prov.get("end_page")
+            page_refs = prov.get("page_references", [start_p] if start_p is not None else [])
+
+            results.append({
+                "chunk_id": idx,
+                "similarity": float(score),
+                "text": chunks[idx],
+                "start_page": start_p,
+                "end_page": end_p,
+                "page_references": page_refs,
+                "normalized_document_start": prov.get("normalized_document_start"),
+                "normalized_document_end": prov.get("normalized_document_end"),
+                "offset_type": prov.get("offset_type", "normalized_document_text"),
+                "exact_document_start": prov.get("exact_document_start"),
+                "exact_document_end": prov.get("exact_document_end"),
+                "exact_offset_type": prov.get("exact_offset_type", "raw_extracted_pdf_text"),
+                "page_spans": prov.get("page_spans", []),
+            })
+
+    return results
 
 
 if __name__ == "__main__":

@@ -1,201 +1,199 @@
 
+import json
+import os
+import re
+import requests
 import spacy
+from dotenv import load_dotenv
 
-# Load the existing scientific NLP model.
+load_dotenv()
+
 nlp = spacy.load("en_core_sci_sm")
+OLLAMA_BASE_URL = os.getenv(
+    "OLLAMA_BASE_URL", "http://localhost:11434"
+).rstrip("/")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 
-RELATION_WORDS = {
-    "cause", "contribute", "increase", "decrease",
-    "associate", "affect", "lead", "result",
-    "involve", "produce", "develop", "progress",
-    "reduce", "predict", "indicate", "contain",
-    "form", "limit", "improve", "inhibit",
-    "activate", "regulate", "correlate"
+
+# Pronouns and auxiliary stop tokens that produce invalid relations
+INVALID_RELATION_TOKENS = {
+    "it", "they", "this", "that", "these", "those", "which", "who", "whom", "whose",
+    "there", "here", "what", "we", "i", "you", "he", "she", "one", "all", "both"
 }
 
-SUBJECT_DEPS = {"nsubj", "nsubjpass", "csubj"}
-OBJECT_DEPS = {"dobj", "obj", "attr", "oprd"}
+
+def is_valid_relation_endpoint(name: str) -> bool:
+    if not name or not isinstance(name, str):
+        return False
+    cleaned = name.strip().lower()
+    if len(cleaned) < 2:
+        return False
+    if cleaned in INVALID_RELATION_TOKENS:
+        return False
+    if cleaned.isdigit() or all(not c.isalnum() for c in cleaned):
+        return False
+    return True
 
 
+def _dependency_relations(sent, filter_generic: bool = False):
+    """Extract explicit subject-verb-object relations from dependencies."""
+    results = []
 
-
-def find_entity_for_token(token, entities):
-    # Prefer an existing entity containing the token.
-    candidates = [
-        ent for ent in entities
-        if ent.start <= token.i < ent.end
-    ]
-
-    if candidates:
-        return min(candidates, key=lambda ent: len(ent))
-
-    # Find the noun phrase containing the grammatical argument.
-    noun_phrase = None
-
-    for chunk in token.doc.noun_chunks:
-        if chunk.start <= token.i < chunk.end:
-            noun_phrase = chunk
-            break
-
-    if noun_phrase is None:
-        return None
-
-    # Reuse an existing entity if it matches the noun phrase.
-    phrase_text = noun_phrase.text.strip().lower()
-
-    for ent in entities:
-        if ent.text.strip().lower() == phrase_text:
-            return ent
-
-    # Create a temporary spaCy span for this candidate.
-    # It is NOT automatically inserted into the knowledge graph.
-    return noun_phrase
-
-def extract_relations(text):
-    """
-    Extract candidate relationships using dependency parsing.
-
-    Relationships retain source evidence and remain unvalidated.
-    Arguments are resolved against existing entities or grammatical
-    noun phrases when entity recognition misses a valid argument.
-    """
-    doc = nlp(text)
-    relations = []
-    seen = set()
-
-    for sent in doc.sents:
-        entities = list(sent.ents)
-
-        if not entities:
+    for token in sent:
+        if token.pos_ not in {"VERB", "AUX"}:
             continue
 
-        for token in sent:
-            # Consider only recognized relationship verbs.
-            if token.pos_ != "VERB":
+        subjects = [
+            child for child in token.children
+            if child.dep_ in {"nsubj", "nsubjpass", "csubj", "nsubj:pass"}
+        ]
+        objects = [
+            child for child in token.children
+            if child.dep_ in {"dobj", "obj", "attr", "oprd", "dative"}
+        ]
+
+        for subj in subjects:
+            if not is_valid_relation_endpoint(subj.text):
                 continue
+            for obj in objects:
+                if not is_valid_relation_endpoint(obj.text):
+                    continue
+                results.append({
+                    "subject": subj.text,
+                    "subject_label": "UNKNOWN",
+                    "relation": token.lemma_.lower(),
+                    "object": obj.text,
+                    "object_label": "UNKNOWN",
+                    "evidence_text": sent.text,
+                    "sentence_start": sent.start_char,
+                    "sentence_end": sent.end_char,
+                    "relation_start": token.idx,
+                    "relation_end": token.idx + len(token.text),
+                    "extraction_method": "dependency_heuristic",
+                    "validation_status": "unvalidated",
+                })
 
-            relation = token.lemma_.lower()
+    return results
 
-            if relation not in RELATION_WORDS:
-                continue
 
-            # Find grammatical subjects and objects attached
-            # to this verb, rather than pairing nearby entities.
-            subjects = [
-                child for child in token.children
-                if child.dep_ in SUBJECT_DEPS]
+def _llm_relations(sent):
+    """Use Ollama when dependency parsing finds no relation."""
+    prompt = f"""
+Extract explicit relationships stated in this scientific sentence.
+Return JSON only, using this schema:
+{{"relations":[{{"subject":"exact source span",
+"relation":"exact predicate span","object":"exact source span"}}]}}
 
-            objects = [
-                child for child in token.children
-                if child.dep_ in OBJECT_DEPS]
+Do not infer facts. Subject, relation, and object must each occur
+exactly in the sentence. Return an empty relations list if needed.
 
-            if not subjects or not objects:
-                continue
+Sentence: {json.dumps(sent.text, ensure_ascii=False)}
+"""
 
-            for subj_token in subjects:
-                for obj_token in objects:
-                    subject_ent = find_entity_for_token(
-                        subj_token, entities
-                    )
-                    object_ent = find_entity_for_token(
-                        obj_token, entities
-                    )
+    response = requests.post(
+        f"{OLLAMA_BASE_URL}/api/chat",
+        json={
+            "model": OLLAMA_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "stream": False,
+            "format": "json",
+            "think": False,
+            "options": {"temperature": 0, "num_predict": 384},
+        },
+        timeout=90,
+    )
+    response.raise_for_status()
+    data = json.loads(response.json()["message"]["content"])
+    results = []
 
-                    if subject_ent is None or object_ent is None:
-                        continue
-
-                    # Avoid duplicate candidate relationships.
-def extract_relations(text):
-    """
-    Extract candidate relationships using dependency parsing.
-
-    Relationships retain source evidence and remain unvalidated.
-    Only relationships whose grammatical subject and object
-    match existing scientific entities are returned.
-    """
-    doc = nlp(text)
-    relations = []
-    seen = set()
-
-    for sent in doc.sents:
-        entities = list(sent.ents)
-
-        if len(entities) < 2:
+    for item in data.get("relations", []):
+        if not isinstance(item, dict):
             continue
 
-        for token in sent:
-            # Consider only recognized relationship verbs.
-            if token.pos_ != "VERB":
-                continue
+        subject = item.get("subject", "").strip()
+        predicate = item.get("relation", "").strip()
+        object_name = item.get("object", "").strip()
 
-            relation = token.lemma_.lower()
+        if not all((subject, predicate, object_name)):
+            continue
 
-            if relation not in RELATION_WORDS:
-                continue
-
-            # Find grammatical subjects and objects attached
-            # to this verb, rather than pairing nearby entities.
-            subjects = [
-                child for child in token.children
-                if child.dep_ in SUBJECT_DEPS]
-
-            objects = [
-                child for child in token.children
-                if child.dep_ in OBJECT_DEPS]
-
-            if not subjects or not objects:
-                continue
-
-            for subj_token in subjects:
-                for obj_token in objects:
-                    subject_ent = find_entity_for_token(
-                        subj_token, entities
-                    )
-                    object_ent = find_entity_for_token(
-                        obj_token, entities
-                    )
-
-                    if subject_ent is None or object_ent is None:
-                        continue
-
-                    # Avoid duplicate candidate relationships.
-                    key = (
-                        subject_ent.start,
-                        relation,
-                        object_ent.start,
-                        token.idx
-                    )
-
-                    if key in seen:
-                        continue
-
-                    seen.add(key)
-
-                    relations.append({
-                       "subject": (
-                            subj_token.text
-                            if subject_ent.label_ == "NP"
-                            else subject_ent.text
-                        ),
-                        "subject_label": (
-                            "UNKNOWN" if subject_ent.label_ == "NP"
-                            else subject_ent.label_
-                        ),
-
-                        # Preserve original source evidence.
-                        "evidence_text": sent.text,
-                        "sentence_start": sent.start_char,
-                        "sentence_end": sent.end_char,
-
-                        # Character offsets of the relation verb.
-                        "relation_start": token.idx,
-                        "relation_end": token.idx + len(token.text),
-
-                        "extraction_method": "dependency_heuristic",
-                        "validation_status": "unvalidated"
-                    })
-
-    return relations
+        
+        def find_spans(text, phrase):
+            return [
+                match.start()
+                for match in re.finditer(re.escape(phrase), text, flags=re.IGNORECASE)
+            ]
 
 
-                       
+        subject_positions = find_spans(sent.text, subject)
+        relation_positions = find_spans(sent.text, predicate)
+        object_positions = find_spans(sent.text, object_name)
+
+        if not subject_positions or not relation_positions or not object_positions:
+            continue
+
+        subject_pos = subject_positions[0]
+        relation_pos = relation_positions[0]
+        object_pos = object_positions[-1]
+        
+        if min(subject_pos, relation_pos, object_pos) < 0:
+            continue
+
+        results.append({
+            "subject": subject,
+            "subject_label": "UNKNOWN",
+            "relation": predicate,
+            "object": object_name,
+            "object_label": "UNKNOWN",
+            "evidence_text": sent.text,
+            "sentence_start": sent.start_char,
+"sentence_end": sent.end_char,
+            "subject_start": sent.start_char + subject_pos,
+            "subject_end": sent.start_char + subject_pos + len(subject),
+            "relation_start": sent.start_char + relation_pos,
+            "relation_end": sent.start_char + relation_pos + len(predicate),
+            "object_start": sent.start_char + object_pos,
+            "object_end": sent.start_char + object_pos + len(object_name),
+            "extraction_method": "ollama_llm",
+            "validation_status": "unvalidated",
+        })
+
+    return results
+
+
+def extract_relations(text):
+    """Extract relations while preserving evidence and source offsets."""
+    if not text or not text.strip():
+        return []
+
+    doc = nlp(text)
+    results = []
+
+    for sent in doc.sents:
+        candidates = _dependency_relations(sent)
+
+        if not candidates:
+            try:
+                candidates = _llm_relations(sent)
+            except (
+                requests.RequestException,
+                ValueError,
+                KeyError,
+                TypeError,
+            ) as exc:
+                print(f"Ollama extraction skipped: {exc}")
+                candidates = []
+
+        results.extend(candidates)
+
+    unique = {}
+    for item in results:
+        key = (
+            item["sentence_start"],
+            item["subject"].lower(),
+            item["relation"].lower(),
+            item["object"].lower(),
+        )
+        unique.setdefault(key, item)
+
+    return list(unique.values())

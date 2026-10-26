@@ -3,3 +3,12 @@ fastapi
 uvicorn
 python-dotenv
 pydantic
+requests
+numpy
+faiss-cpu
+sentence-transformers
+spacy
+scispacy
+pypdf
+python-multipart
+networkx

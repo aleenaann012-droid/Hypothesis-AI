@@ -2,7 +2,7 @@ import hashlib
 from pathlib import Path
 
 from nlp.pdf_extractor import extract_text_from_pdf
-from nlp.entity_extractor import extract_entities
+from nlp.entity_extractor import extract_entities, is_valid_scientific_entity
 from nlp.relation_extractor import extract_relations
 
 from knowledge_graph.graph_builder import GraphBuilder
@@ -19,15 +19,19 @@ def resolve_or_create_entity(
     entity_lookup,
     name,
     entity_type,
-    paper_id
+    paper_id,
+    filter_generic=True
 ):
     """
     Resolve an existing entity or create a missing one.
-    Returns the entity ID, or None if the name is empty.
+    Returns the entity ID, or None if the name is empty or invalid.
     """
     name = (name or "").strip()
 
     if not name:
+        return None
+
+    if filter_generic and not is_valid_scientific_entity(name):
         return None
 
     lookup_key = name.lower()
@@ -143,7 +147,7 @@ def import_research_paper(builder, pdf_path, paper_id):
 
         name = entity.get("text", "").strip()
 
-        if not name:
+        if not name or not is_valid_scientific_entity(name):
             continue
 
         entity_id = create_entity_id(name)
