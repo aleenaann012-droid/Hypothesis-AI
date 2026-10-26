@@ -74,27 +74,37 @@ def print_hypothesis_card(hypo_data: dict):
         if isinstance(unc, dict) and unc.get("rationale"):
             print(f"Rationale:          {unc.get('rationale')}\n")
 
-    # Confidence Assessment
+    # Confidence & Evidence Assessment
     conf_assess = hypo_data.get("confidence_assessment") or struct.get("confidence_assessment", {})
+    ev_status = struct.get("evidence_status") or (conf_assess.get("evidence_status") if conf_assess else "exploratory")
+    ev_gap = struct.get("evidence_gap") or (conf_assess.get("evidence_gap") if conf_assess else "")
+
+    print(f"Evidence Status:    {ev_status.upper()} (UNVALIDATED)")
+    if ev_gap:
+        print(f"Evidence Gap:       {ev_gap}\n")
+
     if conf_assess:
         sci_conf = conf_assess.get("scientific_confidence", "MODERATE").upper()
         scope = conf_assess.get("scope", "in_scope").upper()
         score = conf_assess.get("confidence_score", 0.0)
         sim = conf_assess.get("retrieval_similarity", 0.0)
         print(f"Confidence Assessment: {sci_conf} ({score:.2f}) | Retrieval Similarity: {sim:.4f} | Scope: {scope}")
-        if conf_assess.get("explanation"):
-            print(f"Confidence Rationale:  {conf_assess.get('explanation')}")
+        if conf_assess.get("rationale") or conf_assess.get("explanation"):
+            print(f"Confidence Rationale:  {conf_assess.get('rationale') or conf_assess.get('explanation')}")
         print()
 
     exps = struct.get("proposed_experiments", [])
     if exps:
         print("Proposed Validation Experiments:")
         for idx, exp in enumerate(exps, start=1):
-            print(f"  {idx}. {exp.get('title', 'Validation assay')}")
+            print(f"  {idx}. {exp.get('title', 'Comparative validation assay')}")
             if exp.get("methodology"):
-                print(f"     Methodology:      {exp.get('methodology')}")
+                print(f"     Methodology:        {exp.get('methodology')}")
+            if exp.get("measurable_metrics"):
+                metrics_str = ", ".join(exp.get("measurable_metrics")) if isinstance(exp.get("measurable_metrics"), list) else str(exp.get("measurable_metrics"))
+                print(f"     Measurable Metrics: {metrics_str}")
             if exp.get("expected_outcome"):
-                print(f"     Expected Outcome: {exp.get('expected_outcome')}")
+                print(f"     Expected Outcome:   {exp.get('expected_outcome')}")
             print()
 
     print("=" * 65)

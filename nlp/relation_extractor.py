@@ -161,8 +161,15 @@ Sentence: {json.dumps(sent.text, ensure_ascii=False)}
     return results
 
 
-def extract_relations(text):
-    """Extract relations while preserving evidence and source offsets."""
+def extract_relations(text, use_llm_fallback: bool = False):
+    """Extract relations while preserving evidence and source offsets.
+    
+    Args:
+        text: Source text to extract relations from.
+        use_llm_fallback: If True, falls back to Ollama LLM for sentences without
+                          heuristic dependency relations. Defaults to False for
+                          fast, deterministic ingestion.
+    """
     if not text or not text.strip():
         return []
 
@@ -172,7 +179,7 @@ def extract_relations(text):
     for sent in doc.sents:
         candidates = _dependency_relations(sent)
 
-        if not candidates:
+        if not candidates and use_llm_fallback:
             try:
                 candidates = _llm_relations(sent)
             except (

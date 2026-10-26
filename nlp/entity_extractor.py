@@ -17,7 +17,9 @@ GENERIC_STOP_ENTITIES = {
     "normal", "control", "finding", "findings", "state", "factor", "factors",
     "function", "functions", "role", "type", "types", "evidence", "hypothesis",
     "model", "models", "conclusion", "conclusions", "test", "tests", "ability",
-    "progress", "progression", "presence", "absence", "change", "changes", "increase", "decrease"
+    "progress", "progression", "presence", "absence", "change", "changes", "increase", "decrease",
+    "it", "they", "this", "that", "these", "those", "which", "who", "whom", "whose",
+    "there", "here", "what", "we", "i", "you", "he", "she", "one", "all", "both"
 }
 
 

@@ -501,7 +501,15 @@
             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">
                 Identifies 2-hop open triangles in the knowledge graph: entity pairs (A) and (C) connected via an intermediate bridge (B), but lacking an explored direct relationship.
             </p>
-            <button class="btn-primary" onclick="loadResearchGaps()">Discover Unexplored Gaps</button>
+            <div class="controls-row">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <label for="gapsPaperFilter" style="margin-bottom: 0;">Filter Paper:</label>
+                    <select id="gapsPaperFilter" style="width: 220px;" onchange="loadResearchGaps()">
+                        <option value="">All Papers (Combined)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="loadResearchGaps()">Discover Unexplored Gaps</button>
+            </div>
         </div>
 
         <div id="gapsContainer" style="display: none;" class="card">
@@ -514,6 +522,14 @@
     <div id="tab-graph" class="tab-pane">
         <div class="card">
             <h2>Search Entity in Graph</h2>
+            <div class="controls-row" style="margin-bottom: 14px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <label for="graphPaperFilter" style="margin-bottom: 0;">Paper Scope:</label>
+                    <select id="graphPaperFilter" style="width: 220px;" onchange="loadGraphOverview()">
+                        <option value="">All Papers (Combined)</option>
+                    </select>
+                </div>
+            </div>
             <div class="controls-row">
                 <input type="text" id="entitySearchInput" placeholder="e.g. APOE, Amyloid beta, Alzheimer's disease" style="max-width: 360px;">
                 <button class="btn-primary" onclick="searchEntity()">Search Entity</button>
@@ -539,6 +555,35 @@
         const defaultHost = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "127.0.0.1";
         const API_BASE = window.API_BASE_OVERRIDE || `http://${defaultHost}:8000`;
 
+        async function loadPapersList() {
+            try {
+                const res = await fetch(`${API_BASE}/papers`);
+                const data = await res.json();
+                const papers = data.papers || [];
+
+                const updateSelect = (selectId) => {
+                    const sel = document.getElementById(selectId);
+                    if (!sel) return;
+                    const curVal = sel.value;
+                    sel.innerHTML = '<option value="">All Papers (Combined)</option>';
+                    papers.forEach(p => {
+                        const opt = document.createElement("option");
+                        opt.value = p;
+                        opt.textContent = p === "P001" ? "P001 (Baseline Medical)" : p;
+                        sel.appendChild(opt);
+                    });
+                    if (curVal && papers.includes(curVal)) {
+                        sel.value = curVal;
+                    }
+                };
+
+                updateSelect("gapsPaperFilter");
+                updateSelect("graphPaperFilter");
+            } catch (err) {
+                console.error("Failed to load papers list:", err);
+            }
+        }
+
         async function checkHealth() {
             const badge = document.getElementById("systemStatus");
             try {
@@ -556,6 +601,7 @@
                     badge.style.borderColor = "var(--badge-warning-border)";
                     badge.style.color = "var(--badge-warning-text)";
                 }
+                loadPapersList();
             } catch (err) {
                 console.error("Health check error:", err);
                 badge.innerHTML = `&#9679; API Offline (${API_BASE}) <button onclick="checkHealth()" style="margin-left:8px;padding:2px 6px;font-size:0.75rem;cursor:pointer;background:#f85149;color:#fff;border:none;border-radius:4px;">Retry</button>`;
@@ -691,6 +737,7 @@
                     </div>
                 `;
                 checkHealth();
+                loadPapersList();
             } catch (err) {
                 statusMsg.innerHTML = `<span style="color: #f85149; font-weight: 600;">Error: ${err.message}</span>`;
             } finally {
@@ -735,6 +782,34 @@
 
             simBadge.textContent = `Top Retrieval Similarity: ${maxSim} (Cosine)`;
 
+            // Evidence Status & Gap
+            const evStatus = struct.evidence_status || conf.evidence_status || "exploratory";
+            const evGap = struct.evidence_gap || conf.evidence_gap || "";
+            const statusBadge = document.querySelector("#hypothesisView h2 .status-badge");
+            if (statusBadge) {
+                if (evStatus === "exploratory") {
+                    statusBadge.textContent = "EXPLORATORY HYPOTHESIS";
+                    statusBadge.style.background = "var(--badge-warning-bg)";
+                    statusBadge.style.borderColor = "var(--badge-warning-border)";
+                    statusBadge.style.color = "var(--badge-warning-text)";
+                } else {
+                    statusBadge.textContent = "CORROBORATED PROPOSAL (UNVALIDATED)";
+                    statusBadge.style.background = "rgba(47, 129, 247, 0.15)";
+                    statusBadge.style.borderColor = "rgba(47, 129, 247, 0.4)";
+                    statusBadge.style.color = "#58a6ff";
+                }
+            }
+
+            if (evGap) {
+                document.getElementById("hypoSummary").innerHTML = `
+                    <div style="background: rgba(210, 153, 34, 0.1); border-left: 3px solid #d29922; padding: 8px 12px; margin-top: 8px; border-radius: 4px; font-size: 0.88rem; color: #e6edf3;">
+                        <strong style="color: #e3b341;">Evidence Status (${evStatus.toUpperCase()}):</strong> ${evGap}
+                    </div>
+                `;
+            } else {
+                document.getElementById("hypoSummary").textContent = struct.summary || "";
+            }
+
             // Variables
             const varsGrid = document.getElementById("variablesGrid");
             varsGrid.innerHTML = "";
@@ -760,9 +835,13 @@
                 exps.forEach(exp => {
                     const card = document.createElement("div");
                     card.className = "experiment-card";
+                    const metricsHtml = (exp.measurable_metrics && exp.measurable_metrics.length > 0)
+                        ? `<div style="font-size: 0.85rem; color: #79c0ff; margin-bottom: 4px;"><strong>Measurable Metrics:</strong> ${exp.measurable_metrics.join(', ')}</div>`
+                        : "";
                     card.innerHTML = `
-                        <div class="experiment-title">${exp.title || "Experiment"}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px;"><strong>Method:</strong> ${exp.methodology || ""}</div>
+                        <div class="experiment-title">${exp.title || "Comparative Validation Assay"}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px;"><strong>Methodology:</strong> ${exp.methodology || ""}</div>
+                        ${metricsHtml}
                         <div style="font-size: 0.85rem; color: #3fb950;"><strong>Expected Outcome:</strong> ${exp.expected_outcome || ""}</div>
                     `;
                     expList.appendChild(card);
@@ -833,7 +912,13 @@
 
         async function loadResearchGaps() {
             try {
-                const res = await fetch(`${API_BASE}/research-gaps?limit=20`);
+                const paperSelect = document.getElementById("gapsPaperFilter");
+                const paperId = paperSelect ? paperSelect.value : "";
+                const url = paperId 
+                    ? `${API_BASE}/research-gaps?limit=20&paper_id=${encodeURIComponent(paperId)}`
+                    : `${API_BASE}/research-gaps?limit=20`;
+
+                const res = await fetch(url);
                 const data = await res.json();
                 setRawOutput(data);
 
@@ -843,7 +928,7 @@
                 list.innerHTML = "";
 
                 if (!data.gaps || data.gaps.length === 0) {
-                    list.innerHTML = "<p style='color: var(--text-secondary);'>No missing links detected.</p>";
+                    list.innerHTML = `<p style='color: var(--text-secondary);'>No missing links detected${paperId ? ` for paper '${paperId}'` : ""}.</p>`;
                     return;
                 }
 
@@ -896,13 +981,20 @@
 
         async function loadGraphOverview() {
             try {
-                const res = await fetch(`${API_BASE}/graph`);
+                const paperSelect = document.getElementById("graphPaperFilter");
+                const paperId = paperSelect ? paperSelect.value : "";
+                const url = paperId 
+                    ? `${API_BASE}/graph?paper_id=${encodeURIComponent(paperId)}`
+                    : `${API_BASE}/graph`;
+
+                const res = await fetch(url);
                 const data = await res.json();
                 setRawOutput(data);
 
                 const card = document.getElementById("graphResultsCard");
                 card.style.display = "block";
-                document.getElementById("graphResultsTitle").textContent = `Knowledge Graph Overview (${data.data ? data.data.length : 0} Relationships)`;
+                const scopeLabel = paperId ? ` [Paper: ${paperId}]` : " [All Papers]";
+                document.getElementById("graphResultsTitle").textContent = `Knowledge Graph Overview (${data.data ? data.data.length : 0} Relationships)${scopeLabel}`;
 
                 const content = document.getElementById("graphResultsContent");
                 if (data.data && data.data.length > 0) {
@@ -912,7 +1004,7 @@
                         </div>
                     `).join("") + (data.data.length > 30 ? "<p style='color: var(--text-secondary); margin-top: 8px;'>...showing first 30 relationships</p>" : "");
                 } else {
-                    content.innerHTML = "<p>No graph relationships found.</p>";
+                    content.innerHTML = `<p>No graph relationships found${paperId ? ` for paper '${paperId}'` : ""}.</p>`;
                 }
             } catch (err) {
                 alert(`Graph error: ${err.message}`);

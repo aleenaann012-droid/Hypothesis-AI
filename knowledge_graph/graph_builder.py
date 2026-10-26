@@ -120,7 +120,8 @@ class GraphBuilder:
         self,
         source_id,
         target_id,
-        relationship
+        relationship,
+        paper_id=None
     ):
 
         # Make relationship safe for Neo4j
@@ -133,28 +134,96 @@ class GraphBuilder:
         if not relationship:
             relationship = "RELATED_TO"
 
-        query = f"""
-
-        MATCH (a:Entity {{
-            entity_id: $source_id
-        }})
-
-        MATCH (b:Entity {{
-            entity_id: $target_id
-        }})
-
-        MERGE (a)-[:{relationship}]->(b)
-
-        """
+        if paper_id:
+            query = f"""
+            MATCH (a:Entity {{entity_id: $source_id}})
+            MATCH (b:Entity {{entity_id: $target_id}})
+            MERGE (a)-[r:{relationship} {{paper_id: $paper_id}}]->(b)
+            SET r.paper_id = $paper_id
+            """
+        else:
+            query = f"""
+            MATCH (a:Entity {{entity_id: $source_id}})
+            MATCH (b:Entity {{entity_id: $target_id}})
+            MERGE (a)-[r:{relationship}]->(b)
+            """
 
         with self.db.driver.session() as session:
-
             session.run(
                 query,
                 source_id=source_id,
-                target_id=target_id
+                target_id=target_id,
+                paper_id=paper_id
             )
-    
+
+    def create_entities_batch(self, entities_list, paper_id):
+        """
+        Batch-create Entity nodes and link them to Paper in a single Cypher transaction.
+        entities_list: list of dicts with keys: entity_id, name, entity_type
+        """
+        if not entities_list:
+            return
+
+        query = """
+        UNWIND $batch AS item
+        MERGE (e:Entity {entity_id: item.entity_id})
+        SET e.name = item.name,
+            e.type = item.entity_type
+        WITH e, item
+        MATCH (p:Paper {paper_id: $paper_id})
+        MERGE (p)-[:MENTIONS]->(e)
+        """
+        with self.db.driver.session() as session:
+            session.run(query, batch=entities_list, paper_id=paper_id)
+
+    def create_claims_and_relationships_batch(self, claims_list, paper_id):
+        """
+        Batch-create Evidence, Claim, and direct Entity-to-Entity relationships in bulk.
+        claims_list: list of dicts with all claim & relation fields.
+        """
+        if not claims_list:
+            return
+
+        query = """
+        UNWIND $batch AS item
+        MATCH (p:Paper {paper_id: $paper_id})
+        MATCH (s:Entity {entity_id: item.subject_id})
+        MATCH (o:Entity {entity_id: item.object_id})
+
+        MERGE (c:Claim {claim_id: item.claim_id})
+        SET c.predicate = item.predicate,
+            c.subject_label = item.subject_label,
+            c.object_label = item.object_label,
+            c.extraction_method = item.extraction_method,
+            c.extractor_version = item.extractor_version,
+            c.validation_status = item.validation_status,
+            c.paper_id = $paper_id
+
+        MERGE (ev:Evidence {evidence_id: item.evidence_id})
+        SET ev.text = item.evidence_text,
+            ev.sentence_start = item.sentence_start,
+            ev.sentence_end = item.sentence_end,
+            ev.relation_start = item.relation_start,
+            ev.relation_end = item.relation_end,
+            ev.paper_id = $paper_id
+
+        MERGE (p)-[:HAS_EVIDENCE]->(ev)
+        MERGE (ev)-[:SUPPORTS_CLAIM]->(c)
+        MERGE (c)-[:SUBJECT]->(s)
+        MERGE (c)-[:OBJECT]->(o)
+        """
+        with self.db.driver.session() as session:
+            session.run(query, batch=claims_list, paper_id=paper_id)
+
+        # Also batch create direct edges with paper_id
+        for item in claims_list:
+            self.create_relationship(
+                source_id=item["subject_id"],
+                target_id=item["object_id"],
+                relationship=item["predicate"],
+                paper_id=paper_id
+            )
+
         
     def create_evidence_claim(
         self,

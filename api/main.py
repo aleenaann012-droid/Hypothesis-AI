@@ -146,26 +146,44 @@ def health():
 
 
 @app.get("/graph")
-def get_graph():
-    query = """
-    MATCH (a:Entity)-[r]->(b:Entity)
-    RETURN
-        a.entity_id AS source_id,
-        a.name AS source,
-        a.type AS source_type,
-        type(r) AS relationship,
-        b.entity_id AS target_id,
-        b.name AS target,
-        b.type AS target_type
-    LIMIT 200
-    """
+def get_graph(paper_id: Optional[str] = Query(default=None)):
+    if paper_id:
+        query = """
+        MATCH (p:Paper {paper_id: $paper_id})-[:MENTIONS]->(a:Entity)
+        MATCH (p)-[:MENTIONS]->(b:Entity)
+        MATCH (a)-[r]->(b)
+        WHERE (r.paper_id IS NULL OR r.paper_id = $paper_id)
+        RETURN
+            a.entity_id AS source_id,
+            a.name AS source,
+            a.type AS source_type,
+            type(r) AS relationship,
+            b.entity_id AS target_id,
+            b.name AS target,
+            b.type AS target_type
+        LIMIT 200
+        """
+    else:
+        query = """
+        MATCH (a:Entity)-[r]->(b:Entity)
+        RETURN
+            a.entity_id AS source_id,
+            a.name AS source,
+            a.type AS source_type,
+            type(r) AS relationship,
+            b.entity_id AS target_id,
+            b.name AS target,
+            b.type AS target_type
+        LIMIT 200
+        """
 
     try:
         db = Neo4jConnection()
         try:
             with db.driver.session() as session:
-                result = session.run(query)
+                result = session.run(query, paper_id=paper_id)
                 return {
+                    "paper_id": paper_id,
                     "data": [dict(record) for record in result]
                 }
         finally:
@@ -262,12 +280,40 @@ def get_paper(paper_id: str):
         )
 
 
+@app.get("/papers")
+def get_papers():
+    """Retrieve list of distinct papers in the database and current session."""
+    papers_set = set(DYNAMIC_STORE["uploaded_papers"])
+    papers_set.add("P001")  # Baseline medical paper
+    try:
+        db = Neo4jConnection()
+        try:
+            with db.driver.session() as session:
+                result = session.run("MATCH (p:Paper) RETURN p.paper_id AS paper_id, p.title AS title")
+                db_papers = [dict(record) for record in result]
+                for p in db_papers:
+                    if p.get("paper_id"):
+                        papers_set.add(p["paper_id"])
+        finally:
+            db.close()
+    except Exception:
+        pass
+
+    return {
+        "papers": sorted(list(papers_set))
+    }
+
+
 @app.get("/missing-links")
-def missing_links(limit: int = Query(default=100, ge=1, le=500)):
+def missing_links(
+    limit: int = Query(default=100, ge=1, le=500),
+    paper_id: Optional[str] = Query(default=None)
+):
     """Retrieve 2-hop open triangles in knowledge graph."""
     try:
-        links = find_missing_links(limit=limit)
+        links = find_missing_links(limit=limit, paper_id=paper_id)
         return {
+            "paper_id": paper_id,
             "count": len(links),
             "candidates": links
         }
@@ -279,14 +325,18 @@ def missing_links(limit: int = Query(default=100, ge=1, le=500)):
 
 
 @app.get("/research-gaps")
-def research_gaps(limit: int = Query(default=50, ge=1, le=200)):
+def research_gaps(
+    limit: int = Query(default=50, ge=1, le=200),
+    paper_id: Optional[str] = Query(default=None)
+):
     """
     Discover unexplored research gaps across graph paths,
     formulating mediator hypotheses and bridge rationale.
     """
     try:
-        gaps = find_research_gaps(limit=limit)
+        gaps = find_research_gaps(limit=limit, paper_id=paper_id)
         return {
+            "paper_id": paper_id,
             "count": len(gaps),
             "validation_status": "unvalidated",
             "gaps": gaps
@@ -552,7 +602,13 @@ async def upload_paper(
             builder = GraphBuilder()
             try:
                 builder.create_constraints()
-                import_research_paper(builder, str(temp_pdf_path), assigned_paper_id)
+                import_research_paper(
+                    builder=builder,
+                    pdf_path=str(temp_pdf_path),
+                    paper_id=assigned_paper_id,
+                    text=full_text,
+                    use_llm_fallback=False
+                )
                 neo4j_status = "imported"
             finally:
                 builder.close()

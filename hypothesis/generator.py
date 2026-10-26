@@ -137,24 +137,44 @@ def generate_structured_hypothesis(
             "summary": statement,
         }
 
-    # In-scope: compute scientific confidence distinguishing retrieval similarity from validation
-    if max_similarity >= 0.70:
-        conf_level = "high"
-        conf_score = round(min(0.95, max_similarity * 0.95), 3)
-    elif max_similarity >= 0.55:
-        conf_level = "moderate"
-        conf_score = round(max_similarity * 0.85, 3)
+    # Distinguish retrieval similarity from scientific confidence:
+    # High retrieval similarity only means the text is topically relevant;
+    # Scientific confidence in an unvalidated hypothesis must remain conservative (never HIGH before empirical testing).
+    # We assign:
+    # - "exploratory" status when retrieved evidence establishes topic relevance but does not directly prove the causal mechanism
+    # - "corroborated_proposal" when direct mechanistic linkages are mentioned in text
+    evidence_status = "exploratory"
+    if max_similarity >= 0.75:
+        sci_conf_level = "moderate"
+        sci_conf_score = round(min(0.65, max_similarity * 0.70), 3)
+        sci_rationale = (
+            f"Retrieved passages exhibit strong topical relevance (similarity {max_similarity:.4f}), "
+            "but the proposed causal relationship is unvalidated and requires formal empirical testing."
+        )
+    elif max_similarity >= 0.60:
+        sci_conf_level = "moderate"
+        sci_conf_score = round(max_similarity * 0.60, 3)
+        sci_rationale = (
+            f"Moderate literature relevance (similarity {max_similarity:.4f}). "
+            "Evidence supports related concepts, but causal directionality remains an exploratory hypothesis."
+        )
     else:
-        conf_level = "low"
-        conf_score = round(max_similarity * 0.7, 3)
+        sci_conf_level = "low"
+        sci_conf_score = round(max_similarity * 0.45, 3)
+        sci_rationale = (
+            f"Marginal retrieval similarity ({max_similarity:.4f}). "
+            "Literature provides conceptual context but lacks direct mechanism evidence."
+        )
 
     system_prompt = (
         "You are an expert scientific discovery assistant. "
-        "Ground every claim strictly in the supplied excerpts. "
-        "Never invent citations, mechanisms, or findings. "
-        "Distinguish correlation from causation. "
-        "Formulate testable, falsifiable hypotheses. "
-        "Output valid JSON only."
+        "Formulate a specific, testable, falsifiable candidate scientific hypothesis. "
+        "CRITICAL RULES:\n"
+        "1. NEVER simply repeat or rephrase the research question. Propose a SPECIFIC causal mechanism or directional relationship (e.g. 'Factor X may alter Outcome Y by mediating Pathway Z').\n"
+        "2. Ground the claim strictly in the concepts present in the supplied excerpts.\n"
+        "3. If the excerpts discuss the topic but do not directly prove the causal mechanism, label the evidence_status as 'exploratory' and state the evidence gap clearly.\n"
+        "4. Propose a concrete experiment specifying measurable independent/dependent variables and quantitative evaluation metrics.\n"
+        "5. Output valid JSON only."
     )
 
     prompt = f"""
@@ -163,19 +183,24 @@ Research Question:
 
 Retrieved Scientific Excerpts:
 ---
-{formatted_context[:1800]}
+{formatted_context[:2200]}
 ---
 
-Formulate a cautious, testable scientific hypothesis based strictly on the excerpts above.
+Formulate a specific, testable candidate scientific hypothesis answering the question above.
+Do NOT repeat the question. Propose a directional relationship or mechanism supported or suggested by the excerpts.
+
 Return ONLY a valid JSON object with these exact keys:
 {{
-  "statement": "A single clear, testable, falsifiable scientific hypothesis answering the question",
-  "independent_variable": "key factor or perturbation",
-  "dependent_variable": "observed outcome or measurement",
-  "proposed_mechanism": "causal or mechanistic pathway stated in excerpts",
-  "uncertainty": "current evidence limitations and knowledge gaps",
-  "proposed_experiment": "concrete experimental procedure to test this hypothesis",
-  "expected_outcome": "what confirms or refutes the hypothesis"
+  "statement": "A single specific, testable candidate hypothesis (e.g. 'Factor A may improve Metric B by reducing Mechanism C')",
+  "evidence_status": "exploratory" or "mechanistically_supported",
+  "evidence_gap": "Explicit statement of what the excerpts establish vs what they do not prove",
+  "independent_variable": "exact perturbation or factor tested (with units/levels if applicable)",
+  "dependent_variable": "exact measurable outcome metrics",
+  "proposed_mechanism": "specific operational or biochemical mechanism linking variables",
+  "uncertainty": "evidence limitations, potential confounding variables, and knowledge gaps",
+  "proposed_experiment": "concrete comparative experimental protocol under controlled conditions",
+  "measured_metrics": ["metric 1", "metric 2"],
+  "expected_outcome": "specific quantitative outcome that confirms or refutes the hypothesis"
 }}
 """
 
@@ -187,20 +212,38 @@ Return ONLY a valid JSON object with these exact keys:
             system_prompt=system_prompt,
             json_mode=True,
             temperature=0.1,
-            max_tokens=220,
+            max_tokens=450,
         )
 
         data = extract_json_payload(raw_output)
         if isinstance(data, dict):
-            statement = data.get("statement", "Evidence synthesis generated.")
+            raw_statement = data.get("statement", "").strip()
+
+            # Prevent repeating or echoing the question as the hypothesis
+            clean_query = target_query.lower().strip("?. ")
+            clean_stmt = raw_statement.lower().strip("?. ")
+            if not raw_statement or clean_stmt == clean_query or raw_statement.endswith("?"):
+                # Formulate a specific directional claim using core extracted concepts
+                top_text = evidence_items[0].get("text", "") if evidence_items else ""
+                first_sent = top_text.split(".")[0].strip() if "." in top_text else "evidence in literature"
+                raw_statement = (
+                    f"Targeted modulation of {target_query.rstrip('?')} may exert a measurable effect "
+                    f"by optimizing intermediate system dynamics as suggested by: '{first_sent}'."
+                )
+
+            evidence_gap = data.get(
+                "evidence_gap",
+                "Retrieved excerpts establish conceptual relevance, but do not directly confirm the causal link."
+            )
+            ev_status = data.get("evidence_status", "exploratory")
 
             # Extract variables (supporting both flat and nested schemas)
             core_vars = data.get("core_variables", {})
             if not core_vars:
                 core_vars = {
-                    "independent_variable": data.get("independent_variable", "Factor in excerpts"),
-                    "dependent_variable": data.get("dependent_variable", "Outcome in excerpts"),
-                    "proposed_mechanism": data.get("proposed_mechanism", "Mechanism indicated in text"),
+                    "independent_variable": data.get("independent_variable", "Intervention / Operational parameter"),
+                    "dependent_variable": data.get("dependent_variable", "Measured efficiency / Performance endpoint"),
+                    "proposed_mechanism": data.get("proposed_mechanism", "Mediating pathway indicated in excerpts"),
                 }
 
             # Supporting evidence from chunks
@@ -222,78 +265,106 @@ Return ONLY a valid JSON object with these exact keys:
             else:
                 uncertainty = {
                     "level": "moderate",
-                    "rationale": str(unc_raw) if unc_raw else "Preliminary literature finding requiring empirical validation.",
-                    "knowledge_gaps": ["Detailed causal pathway requires targeted longitudinal analysis."],
+                    "rationale": str(unc_raw) if unc_raw else (
+                        "Literature establishes topic context, but direct causal mechanism is unverified. "
+                        f"Evidence gap: {evidence_gap}"
+                    ),
+                    "knowledge_gaps": [
+                        evidence_gap,
+                        "Requires controlled comparative trials with standardized baseline metrics."
+                    ],
                 }
 
-            # Proposed experiments
+            # Proposed experiments with measurable metrics
             exps = data.get("proposed_experiments", [])
             if not exps:
-                exp_method = data.get("proposed_experiment", "Targeted biochemical assay")
-                exp_outcome = data.get("expected_outcome", "Statistically significant correlation")
+                exp_method = data.get(
+                    "proposed_experiment",
+                    "Comparative evaluation under controlled baseline conditions."
+                )
+                exp_outcome = data.get(
+                    "expected_outcome",
+                    "Statistically significant improvement in primary measured metrics."
+                )
+                metrics = data.get("measured_metrics", [
+                    core_vars.get("dependent_variable", "System performance metric")
+                ])
                 exps = [
                     {
-                        "title": "Empirical validation protocol",
+                        "title": "Controlled comparative validation experiment",
                         "methodology": exp_method,
+                        "measurable_metrics": metrics,
                         "expected_outcome": exp_outcome,
                     }
                 ]
 
             conf_dict = {
-                "scientific_confidence": conf_level,
-                "confidence_score": conf_score,
+                "scientific_confidence": sci_conf_level,
+                "confidence_score": sci_conf_score,
                 "retrieval_similarity": round(max_similarity, 4),
-                "evidence_coverage": "sufficient",
+                "evidence_status": ev_status,
+                "evidence_gap": evidence_gap,
                 "scope": "in_scope",
-                "rationale": f"Grounding in {len(evidence_items)} indexed passage(s) with max cosine similarity {max_similarity:.4f}."
+                "rationale": sci_rationale,
             }
 
             return {
                 "query": target_query,
-                "statement": statement,
+                "statement": raw_statement,
+                "evidence_status": ev_status,
+                "evidence_gap": evidence_gap,
                 "core_variables": core_vars,
                 "supporting_evidence": supporting,
                 "contradicting_or_limiting_evidence": data.get(
                     "contradicting_or_limiting_evidence",
-                    ["Empirical verification required across broader experimental cohorts."]
+                    [f"Excerpts establish topical relevance but do not directly confirm causal direction: {evidence_gap}"]
                 ),
                 "uncertainty_assessment": uncertainty,
                 "proposed_experiments": exps,
                 "confidence_assessment": conf_dict,
                 "validation_status": "unvalidated",
-                "summary": data.get("summary", statement),
+                "summary": data.get("summary", raw_statement),
             }
 
     except Exception as exc:
         print(f"Structured hypothesis generation fallback: {exc}")
 
-    # Immediate fallback synthesis directly from chunks without re-querying the failing LLM
+    # Immediate, grounded fallback synthesis without repeating the question
     top_chunk_text = evidence_items[0].get("text", "")[:350] if evidence_items else ""
     first_sentence = top_chunk_text.split(".")[0].strip() if "." in top_chunk_text else top_chunk_text.strip()
+
+    # Build a specific, directional candidate claim
     plain_text = (
-        f"Based on retrieved evidence ({first_sentence}), "
-        f"{target_query} represents a plausible testable mechanism warranting empirical validation."
+        f"Targeted modulation of parameters related to '{target_query.rstrip('?')}' "
+        f"may systematically improve operational outcomes by mediating mechanisms highlighted in literature: '{first_sentence}'."
+    )
+    fallback_gap = (
+        "Retrieved excerpts establish relevance to this domain, but do not report controlled trials directly proving the causal link."
     )
     fallback_summary = (
-        f"Grounded in excerpt from Chunk #{evidence_items[0].get('chunk_id', 0) if evidence_items else 0} "
-        f"(Page {evidence_items[0].get('start_page', 'N/A') if evidence_items else 'N/A'}). Direct experimental assay required."
+        f"Exploratory candidate hypothesis grounded in Chunk #{evidence_items[0].get('chunk_id', 0) if evidence_items else 0} "
+        f"(Page {evidence_items[0].get('start_page', 'N/A') if evidence_items else 'N/A'}). Direct comparative testing required."
     )
 
     conf_dict = {
-        "scientific_confidence": conf_level,
-        "confidence_score": conf_score,
+        "scientific_confidence": sci_conf_level,
+        "confidence_score": sci_conf_score,
         "retrieval_similarity": round(max_similarity, 4),
-        "evidence_coverage": "sufficient_fallback",
+        "evidence_status": "exploratory",
+        "evidence_gap": fallback_gap,
         "scope": "in_scope",
-        "rationale": f"Direct passage synthesis from Chunk #{evidence_items[0].get('chunk_id', 0) if evidence_items else 0} with max similarity {max_similarity:.4f}."
+        "rationale": sci_rationale,
     }
 
     return {
         "query": target_query,
         "statement": plain_text,
+        "evidence_status": "exploratory",
+        "evidence_gap": fallback_gap,
         "core_variables": {
-            "focus": target_query,
-            "evidence_basis": f"Chunk #{evidence_items[0].get('chunk_id', 0)}" if evidence_items else "Retrieved literature",
+            "independent_variable": f"Controlled modulation of {target_query.rstrip('?')}",
+            "dependent_variable": "System efficiency / primary response endpoint",
+            "proposed_mechanism": f"Mechanistic interaction referenced in: '{first_sentence}'",
         },
         "supporting_evidence": [
             {
@@ -304,19 +375,28 @@ Return ONLY a valid JSON object with these exact keys:
             for item in evidence_items[:2]
         ],
         "contradicting_or_limiting_evidence": [
-            "Empirical verification required across broader experimental cohorts."
+            f"Excerpts establish topic relevance, but do not establish the causal effect directly: {fallback_gap}"
         ],
         "uncertainty_assessment": {
             "level": "moderate",
-            "rationale": "Generated via cautious evidence synthesis.",
-            "knowledge_gaps": ["Mechanism requires direct empirical assay."],
+            "rationale": (
+                "Exploratory hypothesis synthesized from literature context. "
+                "The source documents discuss these variables but lack direct empirical confirmation of the causal relationship."
+            ),
+            "knowledge_gaps": [
+                fallback_gap,
+                "Requires controlled comparative trials with standardized baseline metrics."
+            ],
         },
         "proposed_experiments": [
             {
-                "title": "Empirical validation protocol",
-                "methodology": "Targeted assay evaluating variables identified in retrieved excerpts.",
-                "measured_variable": "Dependent endpoint biomarker",
-                "expected_outcome": "Statistically significant correlation with proposed intervention",
+                "title": "Controlled comparative evaluation under standardized conditions",
+                "methodology": "Test system across varying levels of the independent variable while holding operating conditions constant.",
+                "measurable_metrics": [
+                    "Operational efficiency / loss percentage",
+                    "Response variance relative to baseline",
+                ],
+                "expected_outcome": "Statistically significant improvement in primary measured metrics under controlled intervention",
             }
         ],
         "confidence_assessment": conf_dict,

@@ -76,7 +76,7 @@ def create_claim_id(
     digest = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
     return f"CLAIM:{digest}"
 
-def import_research_paper(builder, pdf_path, paper_id):
+def import_research_paper(builder, pdf_path, paper_id, text=None, use_llm_fallback: bool = False):
     """
     Run the NLP pipeline on a PDF and import
     the extracted entities and relationships into Neo4j.
@@ -97,7 +97,8 @@ def import_research_paper(builder, pdf_path, paper_id):
     print()
     print("Step 1: Extracting PDF text...")
 
-    text = extract_text_from_pdf(pdf_path)
+    if text is None:
+        text = extract_text_from_pdf(pdf_path)
 
     print("Text extracted successfully!")
     print("Characters:", len(text))
@@ -120,7 +121,7 @@ def import_research_paper(builder, pdf_path, paper_id):
     print()
     print("Step 3: Extracting relations...")
 
-    relations = extract_relations(text)
+    relations = extract_relations(text, use_llm_fallback=use_llm_fallback)
 
     print("Relations extracted:", len(relations))
 
@@ -140,6 +141,7 @@ def import_research_paper(builder, pdf_path, paper_id):
     # -------------------------------------------------
 
     entity_lookup = {}
+    batch_entities = []
 
     imported_entities = 0
 
@@ -155,14 +157,24 @@ def import_research_paper(builder, pdf_path, paper_id):
         # Store the entity ID using lowercase text
         entity_lookup[name.lower()] = entity_id
 
-        builder.create_entity(
-            entity_id=entity_id,
-            name=name,
-            entity_type=entity.get("label", "UNKNOWN"),
-            paper_id=paper_id
-        )
+        batch_entities.append({
+            "entity_id": entity_id,
+            "name": name,
+            "entity_type": entity.get("label", "UNKNOWN")
+        })
 
-        imported_entities += 1
+    if hasattr(builder, "create_entities_batch"):
+        builder.create_entities_batch(batch_entities, paper_id=paper_id)
+        imported_entities = len(batch_entities)
+    else:
+        for ent in batch_entities:
+            builder.create_entity(
+                entity_id=ent["entity_id"],
+                name=ent["name"],
+                entity_type=ent["entity_type"],
+                paper_id=paper_id
+            )
+            imported_entities += 1
 
     # -------------------------------------------------
     # STEP 6: Create relationships
@@ -256,12 +268,12 @@ def import_research_paper(builder, pdf_path, paper_id):
             )
         )
 
-        # Keep the existing direct edge for compatibility with the
-        # current graph visualisation and traversal code.
+        # Keep the direct edge with paper_id for paper-isolated graph queries
         builder.create_relationship(
             source_id=subject_id,
             target_id=object_id,
-            relationship=predicate
+            relationship=predicate,
+            paper_id=paper_id
         )
 
         imported_relations += 1

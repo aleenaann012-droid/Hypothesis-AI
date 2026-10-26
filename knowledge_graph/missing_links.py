@@ -80,7 +80,71 @@ LIMIT 150
 """
 
 
-def find_multi_hop_gaps(min_hops: int = 2, max_hops: int = 3, limit: int = 50) -> List[Dict[str, Any]]:
+def build_missing_link_query(paper_id: Optional[str] = None) -> str:
+    if paper_id:
+        return """
+        MATCH (p:Paper {paper_id: $paper_id})
+        MATCH (p)-[:MENTIONS]->(a:Entity)
+        MATCH (p)-[:MENTIONS]->(b:Entity)
+        MATCH (p)-[:MENTIONS]->(c:Entity)
+        MATCH (a)-[r1]->(b)
+        MATCH (b)-[r2]->(c)
+        WHERE a <> c
+          AND NOT ((a)-[]->(c))
+          AND (r1.paper_id IS NULL OR r1.paper_id = $paper_id)
+          AND (r2.paper_id IS NULL OR r2.paper_id = $paper_id)
+        RETURN
+            a.entity_id AS source_id,
+            a.name AS source,
+            a.type AS source_type,
+            type(r1) AS first_relationship,
+            b.entity_id AS bridge_id,
+            b.name AS bridge,
+            b.type AS bridge_type,
+            type(r2) AS second_relationship,
+            c.entity_id AS target_id,
+            c.name AS candidate_target,
+            c.type AS target_type
+        LIMIT 100
+        """
+    return MISSING_LINK_QUERY
+
+
+def build_multi_hop_query(paper_id: Optional[str] = None) -> str:
+    if paper_id:
+        return """
+        MATCH (p:Paper {paper_id: $paper_id})
+        MATCH path = (a:Entity)-[r*2..3]->(c:Entity)
+        WHERE a <> c
+          AND NOT (a)-[]->(c)
+          AND ALL(node IN nodes(path) WHERE (p)-[:MENTIONS]->(node))
+          AND ALL(rel IN relationships(path) WHERE rel.paper_id IS NULL OR rel.paper_id = $paper_id)
+          AND ALL(node IN nodes(path) WHERE NOT toLower(node.name) IN [
+            'treatment', 'disease', 'drug', 'future', 'confusing', 'study', 'results', 'patient', 'patients', 'mouse', 'mice', 'level', 'rate', 'time', 'method', 'data'
+          ])
+        WITH a, c, path,
+             [rel in relationships(path) | type(rel)] as rel_types,
+             [node in nodes(path) | node.name] as node_names,
+             [node in nodes(path) | node.type] as node_types,
+             [node in nodes(path) | node.entity_id] as node_ids
+        RETURN
+            a.entity_id AS source_id,
+            a.name AS source,
+            a.type AS source_type,
+            c.entity_id AS target_id,
+            c.name AS candidate_target,
+            c.type AS target_type,
+            rel_types,
+            node_names,
+            node_types,
+            node_ids,
+            length(path) AS hop_count
+        LIMIT 150
+        """
+    return MULTI_HOP_GAP_QUERY
+
+
+def find_multi_hop_gaps(min_hops: int = 2, max_hops: int = 3, limit: int = 50, paper_id: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     Find 2-hop and 3-hop transitive gaps in Neo4j with fallback.
     """
@@ -88,8 +152,9 @@ def find_multi_hop_gaps(min_hops: int = 2, max_hops: int = 3, limit: int = 50) -
         db = Neo4jConnection()
         try:
             with db.driver.session() as session:
-                query = MULTI_HOP_GAP_QUERY.replace("LIMIT 150", f"LIMIT {limit * 3}")
-                result = session.run(query)
+                base_query = build_multi_hop_query(paper_id=paper_id)
+                query = base_query.replace("LIMIT 150", f"LIMIT {limit * 3}")
+                result = session.run(query, paper_id=paper_id)
                 records = [dict(record) for record in result]
                 if records:
                     return records
@@ -98,10 +163,10 @@ def find_multi_hop_gaps(min_hops: int = 2, max_hops: int = 3, limit: int = 50) -
     except Exception as exc:
         print(f"Neo4j multi-hop query unavailable ({exc}); falling back to in-memory graph.")
 
-    return find_missing_links_from_fallback(limit=limit, max_hops=max_hops)
+    return find_missing_links_from_fallback(limit=limit, max_hops=max_hops, paper_id=paper_id)
 
 
-def find_missing_links(limit: int = 100) -> List[Dict[str, Any]]:
+def find_missing_links(limit: int = 100, paper_id: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     Find open transitive paths in the knowledge graph.
     If Neo4j is offline, falls back gracefully to processed local graph data.
@@ -110,8 +175,9 @@ def find_missing_links(limit: int = 100) -> List[Dict[str, Any]]:
         db = Neo4jConnection()
         try:
             with db.driver.session() as session:
-                query = MISSING_LINK_QUERY.replace("LIMIT 100", f"LIMIT {limit}")
-                result = session.run(query)
+                base_query = build_missing_link_query(paper_id=paper_id)
+                query = base_query.replace("LIMIT 100", f"LIMIT {limit}")
+                result = session.run(query, paper_id=paper_id)
                 records = [dict(record) for record in result]
                 # Filter out generic entities
                 filtered = [
@@ -125,10 +191,10 @@ def find_missing_links(limit: int = 100) -> List[Dict[str, Any]]:
             db.close()
     except Exception as exc:
         print(f"Neo4j missing links query unavailable ({exc}); using graph fallback.")
-        return find_missing_links_from_fallback(limit=limit)
+        return find_missing_links_from_fallback(limit=limit, paper_id=paper_id)
 
 
-def find_missing_links_from_fallback(limit: int = 100, max_hops: int = 3) -> List[Dict[str, Any]]:
+def find_missing_links_from_fallback(limit: int = 100, max_hops: int = 3, paper_id: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     Extract missing links from processed JSON graph files using networkx.
     Used when Neo4j service is offline or unreachable.
@@ -140,6 +206,11 @@ def find_missing_links_from_fallback(limit: int = 100, max_hops: int = 3) -> Lis
     try:
         with open(sample_path, "r", encoding="utf-8") as f:
             data = json.load(f)
+
+        # If paper_id is specified and doesn't match fallback sample data, return empty
+        sample_paper_id = data.get("paper_id", "P001")
+        if paper_id and paper_id != sample_paper_id and paper_id != "P001":
+            return []
 
         G = nx.DiGraph()
 
@@ -212,13 +283,13 @@ def calculate_semantic_similarity(text_a: str, text_b: str) -> float:
         return len(words_a & words_b) / union if union > 0 else 0.5
 
 
-def find_research_gaps(limit: int = 50, filter_generic: bool = True) -> List[Dict[str, Any]]:
+def find_research_gaps(limit: int = 50, filter_generic: bool = True, paper_id: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     Synthesize missing links into researcher-facing discovery gaps,
     proposing testable mediator hypotheses, bridge paths, and ranking
     them by combining graph topology and semantic plausibility.
     """
-    raw_links = find_missing_links(limit=limit * 2)
+    raw_links = find_missing_links(limit=limit * 2, paper_id=paper_id)
     gaps = []
 
     for item in raw_links:
